@@ -72,52 +72,56 @@ const main = async () => {
       image:
         'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnextstop.blob.core.windows.net%2Farticle-images%2Fdaddywarbucks.jpeg&f=1&nofb=1',
       beer_name: 'Daddy Warbucks (aka Imperial Money)',
-      brewery: 'Barrier Brewing Co.',
+      brewery: 'Barrier Brewing Company',
       beer_type_id: dipa[0]._id,
       beer_type_name: dipa[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image: 'https://i.imgur.com/t08vvx2.jpg',
+      beer_name: 'Heady Topper',
+      brewery: 'The Alchemist',
       beer_type_id: dipa[0]._id,
       beer_type_name: dipa[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image: 'https://i.imgur.com/0Crg5cB.jpg',
+      beer_name: 'The Strongest Geometric Shape: Strata, Citra, Motueka',
+      brewery: 'Barrier Brewing Company',
       beer_type_id: hipa[0]._id,
       beer_type_name: hipa[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcraftpeak-cooler-images.imgix.net%2Fevil-twin-brewing-nyc%2FDSC01163.jpg%3Fauto%3Dcompress%252Cformat%26fit%3Dscale%26h%3D768%26ixlib%3Dphp-1.2.1%26w%3D768%26wpsize%3Dmedium_large&f=1&nofb=1',
+      beer_name:
+        'WHO ELSE IS EXCITED ABOUT THE VIRUAL VIEWING OF THE ROCKEFELLER CHRISTMAS TREE THIS YEAR?',
+      brewery: 'Evil Twin Brewing NYC',
       beer_type_id: hipa[0]._id,
       beer_type_name: hipa[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.konabrewingco.ch%2Fwp-content%2Fuploads%2F2020%2F07%2Fkonabrewingco_products_hanalei_island_ipa.png&f=1&nofb=1',
+      beer_name: 'Hanalei Isand IPA',
+      brewery: 'Kona Brewing Company',
       beer_type_id: sipa[0]._id,
       beer_type_name: sipa[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ffoundersbrewing.com%2Fwp-content%2Fuploads%2F2017%2F08%2F2020_all_day_ipa_featured.jpg&f=1&nofb=1',
+      beer_name: 'All Day IPA',
+      brewery: 'Founders Brewing Company',
       beer_type_id: sipa[0]._id,
       beer_type_name: sipa[0].style_name,
       avg_rating: '',
