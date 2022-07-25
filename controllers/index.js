@@ -19,6 +19,21 @@ const createBeer = async (req, res) => {
   }
 }
 
+const updateBeer = async (req, res) => {
+  try {
+    const updateBeer = await Beer.findByIdAndUpdate(
+      req.params.beerId,
+      req.body,
+      {
+        new: true
+      }
+    )
+    res.status(200).json(updateBeer)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 const getAllBeers = async (req, res) => {
   try {
     const beers = await Beer.find()
@@ -59,6 +74,7 @@ const getBeerReviews = async (req, res) => {
 module.exports = {
   getAllBeerTypes,
   createBeer,
+  updateBeer,
   getAllBeers,
   getBeersByType,
   createReview,
