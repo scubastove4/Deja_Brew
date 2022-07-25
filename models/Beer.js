@@ -8,3 +8,5 @@ const Beer = new Schema({
   avg_rating: { type: String, required: false },
   num_of_reviews: { type: String, required: false }
 })
+
+module.exports = Beer

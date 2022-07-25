@@ -7,3 +7,5 @@ const BeerType = new Schema({
   flavor_description: { type: String, required: true },
   beers: { type: Array, required: true }
 })
+
+module.exports = BeerType
