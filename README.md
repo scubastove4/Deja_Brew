@@ -19,34 +19,27 @@ Deja Brew is a public beer review app. Users can search by beer type or beer nam
 
 ## **_Technologies_**
 
-- HTML 5
-- CSS3
-- JS 6
+- MongoDB/Mongoose
+- Express
+- React
+- Node
 - Git/Github
 
 ---
 
-## **_Game Overview_**
+## **App Overview\_**
 
-At the homepage you get to decide whether you would like to run a single race, or if you would like to test your luck and race for the Triple Crown.
+The homepage is where you start your search for that sudsy goodness. If you're not sure what you want exactly but have an idea of what style of beer you'd like, use the search bar to see some options in your style of choice. If you're stuck between a couple options, pop their names into the search to see what others think about them.
 
-After making your decision, head on over to "DraftQueens SportsBook" (sadly no affiliation with Draftkings) where you get to see (set) the horses who will be racing. There are 8 posts, so up to 8 horses can race at once. Once you figure out who's racing, place your bets! When you are all satisfied with your wagers, send the ponies to the posts!
+The navbar up top links to a Beer by Type page that is a little more broad, so you can see a whole bunch of styles. Clicking on an individual style will provide a list of beers in that category. If you're up for anything, there's also a random beer generator that will give a suggestion from our database.
 
-On the next screen your horses will be assigned a lane based on the order they "qualified" for the race. Click the deck of cards on the bottom left; a number that corresponds with a horse will be randomly selected. Whichever horse matches that number wil move forward 1 length. After all horses have passed the first length, the length card is flipped, and the unlucky horse that matches that card drops back a pace. And don't worry, after that first click on each page, you get to sit back and watch the horses run!
+## **_Screenshots_**
 
-If you're watching a sinlge race, whoever makes it 16 lengths first is the winner, and whoever placed their wagers on that horse collects all of the losers' points! If you dared to run the Triple Crown, there are 3 races. Each lasts 8 lengths. At the end, the pot is split by whichever horses win!
+### Home Page
 
-## **_Screenshots (Better Images Pending)_**
+### Review
 
-### Qualifying Horses & Making Wagers
-
-![Enter_Horse_Names](pics-and-audio/Enter-horses-and-wagers.png)
-
-### Time to Race!
-
-![Start_of_Race](pics-and-audio/Start-of-race.png)
-![Mid-Race](pics-and-audio/Mid-race.png)
-![End-of-Race](pics-and-audio/End-of-race.png)
+### Random Beer
 
 ---
 
@@ -54,20 +47,11 @@ If you're watching a sinlge race, whoever makes it 16 lengths first is the winne
 
 - Future Updates
 
-  - [ ] Choose race track background
-  - [ ] Real time weather affecting background
-  - [ ] Use enter to select buttons attached to inputs
+  - [ ] Search by Brewery
+  - [ ] Search by location
+  - [ ] Show top/most rated beers on the home page
+  - [ ] Implement third party-API to find beer store locations
 
 - Completed updates
-  - [x] Run the Triple Crown
-  - [x] Have horse/card slide across track
 
 ## **_Credits_**
-
-| Images & Audio                                                                                                                                                                                  | Fonts & Colors                                                         |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| [Triple Crown Background](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fucd.kaplan.com.sg%2Fwp-content%2Fuploads%2F2017%2F08%2Ftriple-crown-glory.jpg&f=1&nofb=1)                 | [Urban Fonts](https://www.urbanfonts.com/fonts/Royal_Acid.htm)         |
-| [Race Start Sound](https://www.audiomicro.com/start-of-horse-race-sports-games-start-of-horse-race-sound-effects-44772)                                                                         | [Max Fonts](https://maxfonts.com/fonts/a/american-purpose-casual.font) |
-| [Table Background](https://unsplash.com/photos/ysDq0fY-bzo)                                                                                                                                     |
-| [Front of Card](https://media.istockphoto.com/photos/blank-playing-card-on-a-white-background-picture-id182393154?k=6&m=182393154&s=170667a&w=0&h=c2mrUWET1N7kWWio7wS3Xe4N2GpsMXIZpk2ZZkFRXPg=) |
-| [Back of Card](https://www.vippng.com/preview/iwTTwww_circle/)                                                                                                                                  |
