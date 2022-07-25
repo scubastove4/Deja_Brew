@@ -48,33 +48,33 @@ const main = async () => {
     {
       image: { type: String, required: true },
       style_name: 'Pale Ales',
-      country_of_origin: 'England, Ireland, USA',
+      country_of_origin: 'Belgium, England',
       style_description:
-        'Amber and red ales are, wait for it..., amber or red in appearance. They  generally have a malty and caramelly taste, with mild bitterness.',
+        'While the English may be better known for their Pale Ales, it is believed that they actually crafted this beer after the Belgian Pale Ale. In general these beers have mild to heavy bitterness, with hoppy flavors that range from floral to citrus to pine.',
       beers: []
     },
     {
       image: { type: String, required: true },
-      style_name: 'Amber/Red Ales',
-      country_of_origin: 'England, Ireland, USA',
+      style_name: 'Wheat Beers',
+      country_of_origin: 'Germany, Belgium',
       style_description:
-        'Amber and red ales are, wait for it..., amber or red in appearance. They  generally have a malty and caramelly taste, with mild bitterness.',
+        'Wheat beers tend to be lighter in color. Their flavors usually are described as tangy and fruity. Fruity often includes citrus and banana notes.',
       beers: []
     },
     {
       image: { type: String, required: true },
-      style_name: 'Amber/Red Ales',
-      country_of_origin: 'England, Ireland, USA',
+      style_name: 'Sour Beers',
+      country_of_origin: 'Belgium',
       style_description:
-        'Amber and red ales are, wait for it..., amber or red in appearance. They  generally have a malty and caramelly taste, with mild bitterness.',
+        'Sour beers have a range of colors that include the more traditional golden look, as well as deep reds, purples, and blues. These beers are tart, sweet, fruity, and (as the name implies) sour.',
       beers: []
     },
     {
       image: { type: String, required: true },
-      style_name: 'Amber/Red Ales',
-      country_of_origin: 'England, Ireland, USA',
+      style_name: 'Kölsch',
+      country_of_origin: 'Germany',
       style_description:
-        'Amber and red ales are, wait for it..., amber or red in appearance. They  generally have a malty and caramelly taste, with mild bitterness.',
+        'The Kölsch is somewhat of a mix of ale and lager. The beer uses ale-yeast but is brewed in a similar process as a lager. The result is incredibly light, crisp, and clean, and these beers are very drinkable. A great introduction to those (of age) trying beer for the first time.',
       beers: []
     },
     {

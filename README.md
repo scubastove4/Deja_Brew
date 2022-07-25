@@ -1,4 +1,4 @@
-# Deja Brew
+# Déjà Brew
 
 ## Date: 07/29/2022
 
