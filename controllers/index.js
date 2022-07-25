@@ -9,6 +9,16 @@ const getAllBeerTypes = async (req, res) => {
   }
 }
 
+const createBeer = async (req, res) => {
+  try {
+    const newReview = await new Review(req.body)
+    await newReview.save()
+    return res.status(201).json({ newReview })
+  } catch (e) {
+    return res.status(500).send(e.message)
+  }
+}
+
 const getAllBeers = async (req, res) => {
   try {
     const beers = await Beer.find()
@@ -48,6 +58,7 @@ const getBeerReviews = async (req, res) => {
 
 module.exports = {
   getAllBeerTypes,
+  createBeer,
   getAllBeers,
   getBeersByType,
   createReview,
