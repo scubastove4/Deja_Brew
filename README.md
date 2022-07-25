@@ -1,19 +1,19 @@
-# Run the Horses
+# Deja Brew
 
-## Date: 07/08/2022
+## Date: 07/29/2022
 
 ### By: Steve Morello
 
-[GitHub](https://github.com/scubastove4) | [LinkedIn](https://www.linkedin.com/in/stephen-morello/) | [Twitter](https://twitter.com/scubastove4) | [Trello](https://trello.com/b/3arBzRBG/kentucky-derby-7-8-22)
+[GitHub](https://github.com/scubastove4) | [LinkedIn](https://www.linkedin.com/in/stephen-morello/) | [Twitter](https://twitter.com/scubastove4) | [Trello](https://trello.com/b/dRCos2ci/deja-brew)
 
 ---
 
 ## **_Description_**
 
 ![Triple_Crown](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fucd.kaplan.com.sg%2Fwp-content%2Fuploads%2F2017%2F08%2Ftriple-crown-glory.jpg&f=1&nofb=1)
-Run the Horses is the first project I completed as a student in the General Assembly Software Engineering Immersive program. This project was completed over the course of a week.
+Deja Brew is the second project I completed as a student in the General Assembly Software Engineering Immersive program. This project is a MERN application that was completed over the course of a week.
 
-The goal of Run the Horses is to bring the world's most famous race series right to your ~~table~~ desktop. A series of card flips will determine if you can win the Triple Crown... and more importantly the "money."
+Deja Brew is a public beer review app. Users can search by beer type or beer name. When reviewing each beer, users have the option to rate from 0-5, create a flavor profile, and leave a comment. Deja Brew also has a neat random beer feature for those who like to try any and every beer, just click on the link and a beer from the database will pop up.
 
 ---
 
