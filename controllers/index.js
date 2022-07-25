@@ -31,6 +31,19 @@ const updateBeer = async (req, res) => {
   }
 }
 
+const deleteBeer = async (req, res) => {
+  try {
+    const { beerId } = req.params
+    const deleteBeer = await Review.findByIdAndDelete(beerId)
+    if (deleteBeer) {
+      return res.status(200).send('Beer deleted')
+    }
+    throw new Error('Beer not found')
+  } catch (e) {
+    return res.status(500).send(e.message)
+  }
+}
+
 const getAllBeers = async (req, res) => {
   try {
     const beers = await Beer.find()
@@ -100,6 +113,7 @@ module.exports = {
   createBeer,
   getAllBeers,
   updateBeer,
+  deleteBeer,
   getBeersByType,
   createReview,
   getBeerReviews,
