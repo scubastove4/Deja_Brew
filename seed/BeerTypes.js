@@ -31,23 +31,23 @@ const main = async () => {
     },
     {
       image: { type: String, required: true },
-      style_name: 'Amber/Red Ales',
-      country_of_origin: 'England, Ireland, USA',
+      style_name: 'Hazy India Pale Ale (Hazy IPA)',
+      country_of_origin: 'USA',
       style_description:
-        'Amber and red ales are, wait for it..., amber or red in appearance. They  generally have a malty and caramelly taste, with mild bitterness.',
+        "The Hazy IPA is an American take on the traditional IPA. These beers tend to focus more on the hops than the malt, so their flavors tend to be more 'juicy' and less bitter.",
       beers: []
     },
     {
       image: { type: String, required: true },
-      style_name: 'Amber/Red Ales',
-      country_of_origin: 'England, Ireland, USA',
+      style_name: 'Session India Pale Ale (Session IPA)',
+      country_of_origin: 'England, USA',
       style_description:
-        'Amber and red ales are, wait for it..., amber or red in appearance. They  generally have a malty and caramelly taste, with mild bitterness.',
+        'The name derives from England, where people would have meetings (or sessions) where they would like to have a few pints but not get drunk. Typically, these Sessions carry the same flavor profile as IPAs but a little lighter, with lower ABVs.',
       beers: []
     },
     {
       image: { type: String, required: true },
-      style_name: 'Amber/Red Ales',
+      style_name: 'Pale Ales',
       country_of_origin: 'England, Ireland, USA',
       style_description:
         'Amber and red ales are, wait for it..., amber or red in appearance. They  generally have a malty and caramelly taste, with mild bitterness.',
