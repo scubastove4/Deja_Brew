@@ -79,34 +79,34 @@ const main = async () => {
     },
     {
       image: { type: String, required: true },
-      style_name: 'Amber/Red Ales',
-      country_of_origin: 'England, Ireland, USA',
+      style_name: 'Pilsners',
+      country_of_origin: 'Czech Republic, Germany',
       style_description:
-        'Amber and red ales are, wait for it..., amber or red in appearance. They  generally have a malty and caramelly taste, with mild bitterness.',
+        'Pilsner (or Pilseners) are lagers perfected by the Czechs and Germans. They tend to be crisp and clean, with light bitterness and a maltiness that has a bready or biscuity taste.',
       beers: []
     },
     {
       image: { type: String, required: true },
-      style_name: 'Amber/Red Ales',
-      country_of_origin: 'England, Ireland, USA',
+      style_name: 'Porters',
+      country_of_origin: 'England',
       style_description:
-        'Amber and red ales are, wait for it..., amber or red in appearance. They  generally have a malty and caramelly taste, with mild bitterness.',
+        'Porters get their name from the English working class, the street and river porters who mostly drank them. Porters tend to be dark in color, with a creamy feel. Flavors tend to be malty and take on chocolate and coffee notes.',
       beers: []
     },
     {
       image: { type: String, required: true },
-      style_name: 'Amber/Red Ales',
-      country_of_origin: 'England, Ireland, USA',
+      style_name: 'Stouts',
+      country_of_origin: 'England',
       style_description:
-        'Amber and red ales are, wait for it..., amber or red in appearance. They  generally have a malty and caramelly taste, with mild bitterness.',
+        'As the DIPA is to IPA, so is Stout to Porter. Stouts are basically Porters with more roasted malt flavor (stronger coffee tastes) and more alcohol. Fun fact: Guinness, the most famous Stout, is actually red in color.',
       beers: []
     },
     {
       image: { type: String, required: true },
-      style_name: 'Amber/Red Ales',
-      country_of_origin: 'England, Ireland, USA',
+      style_name: 'Belgian Ales',
+      country_of_origin: 'Belgium',
       style_description:
-        'Amber and red ales are, wait for it..., amber or red in appearance. They  generally have a malty and caramelly taste, with mild bitterness.',
+        "Belgian Ales are world renowned for their variety and complex flavors. They share a similar brewing history as Germany but don't abode by the purity laws, so brewers are able to experiment more. On the whole though, a traditional Belgian Ale carries spicy, fruity, and wheaty flavors and are decently boozey.",
       beers: []
     }
   ]
