@@ -207,72 +207,80 @@ const main = async () => {
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi1.wp.com%2Fabsolutebeer.com%2Fwp-content%2Fuploads%2F2020%2F02%2FAB-Breweries-Bitburger-Beer-1-Photo.jpg%3Ffit%3D1800%252C1200%26ssl%3D1&f=1&nofb=1',
+      beer_name: 'Bitburger Premium Pils',
+      brewery: 'Bitburger Brauerei',
       beer_type_id: pils[0]._id,
       beer_type_name: pils[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fconeyislandbeer.com%2Fwp-content%2Fuploads%2F2020%2F06%2FConey-4-Web-1240x1000.jpg&f=1&nofb=1',
+      beer_name: 'Mermaid Pilsner',
+      brewery: 'Coney Island Brewery',
       beer_type_id: pils[0]._id,
       beer_type_name: pils[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fb8%2Fa9%2F14%2Fb8a914228d2619a9e20a44e43ae9fd7c.jpg&f=1&nofb=1',
+      beer_name: 'Vanilla Porter',
+      brewery: 'Breckendridge Brewery',
       beer_type_id: porter[0]._id,
       beer_type_name: porter[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F3.bp.blogspot.com%2F-kE-XalFYBLg%2FUf-ZydkNZDI%2FAAAAAAAAB74%2FI7RjAbNrZR8%2Fs1600%2FIMG_1810.jpg&f=1&nofb=1',
+      beer_name: 'Taddy Porter',
+      brewery: 'Samuel Smith',
       beer_type_id: porter[0]._id,
       beer_type_name: porter[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flh3.googleusercontent.com%2F-9JQXGTUrL1U%2FWM_UHYq0X4I%2FAAAAAAAEtXU%2FIAWUDtvVHqY%2Fimage_thumb.png%3Fimgmax%3D800&f=1&nofb=1',
+      beer_name: 'Sloth Overlord',
+      brewery: 'Finch Beer Company',
       beer_type_id: stout[0]._id,
       beer_type_name: stout[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fsinglecut.com%2Fwp-content%2Fuploads%2F2016%2F11%2FScreen-Shot-2016-11-21-at-5.34.18-PM-e1479767716502.png&f=1&nofb=1',
+      beer_name: 'Barrel-Aged Heavy Boots of Lead',
+      brewery: 'SingelCut Beersmiths',
       beer_type_id: stout[0]._id,
       beer_type_name: stout[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.beergodblog.com%2Fwp-content%2Fuploads%2F2015%2F12%2F1449465561-1024x863.jpg&f=1&nofb=1',
+      beer_name: 'Mad Elf',
+      brewery: 'Tröegs Independent Brewing',
       beer_type_id: belg[0]._id,
       beer_type_name: belg[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.thestar.com%2Fcontent%2Fdam%2Fthestar%2Flife%2Ffood_wine%2F2013%2F05%2F02%2Fclassic_beer_chimay_blue_now_in_ontario%2Fchimay_blue.jpg.size.custom.crop.594x650.jpg&f=1&nofb=1',
+      beer_name: 'Chimay Grande Réserve',
+      brewery: 'Bières de Chimay',
       beer_type_id: belg[0]._id,
       beer_type_name: belg[0].style_name,
       avg_rating: '',
