@@ -26,12 +26,12 @@ const main = async () => {
       style_name: 'Double/Imperial India Pale Ales (DIPA/IIPA)',
       country_of_origin: 'England, Russia',
       style_description:
-        "The IPA's bigger and tougher sibling. The word Imperial was added on to these beers because when the English shipped them to the Imperial Russian Court. These beers have a similar flavor profile as an IPA but generally more hoppy, bitter, and boozey.",
+        "The IPA's bigger and tougher sibling. The word Imperial was added on to these beers when the English shipped them to the Imperial Russian Court. These beers have a similar flavor profile as an IPA but generally more hoppy, bitter, and boozey.",
       beers: []
     },
     {
       image: { type: String, required: true },
-      style_name: 'Hazy India Pale Ale (Hazy IPA)',
+      style_name: 'Hazy India Pale Ales (Hazy IPA)',
       country_of_origin: 'USA',
       style_description:
         "The Hazy IPA is an American take on the traditional IPA. These beers tend to focus more on the hops than the malt, so their flavors tend to be more 'juicy' and less bitter.",
@@ -39,7 +39,7 @@ const main = async () => {
     },
     {
       image: { type: String, required: true },
-      style_name: 'Session India Pale Ale (Session IPA)',
+      style_name: 'Session India Pale Ales (Session IPA)',
       country_of_origin: 'England, USA',
       style_description:
         'The name derives from England, where people would have meetings (or sessions) where they would like to have a few pints but not get drunk. Typically, these Sessions carry the same flavor profile as IPAs but a little lighter, with lower ABVs.',
@@ -71,7 +71,7 @@ const main = async () => {
     },
     {
       image: { type: String, required: true },
-      style_name: 'Kölsch',
+      style_name: 'Kölsches',
       country_of_origin: 'Germany',
       style_description:
         'The Kölsch is somewhat of a mix of ale and lager. The beer uses ale-yeast but is brewed in a similar process as a lager. The result is incredibly light, crisp, and clean, and these beers are very drinkable. A great introduction to those (of age) trying beer for the first time.',
@@ -110,4 +110,14 @@ const main = async () => {
       beers: []
     }
   ]
+
+  await BeerType.insertMany(beerTypes)
+  console.log('Created beer types!')
 }
+
+const run = async () => {
+  await main()
+  db.close()
+}
+
+run()
