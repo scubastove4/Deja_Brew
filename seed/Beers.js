@@ -148,36 +148,40 @@ const main = async () => {
       num_of_reviews: ''
     },
     {
-      image: '',
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.whiskeyriff.com%2Fwp-content%2Fuploads%2F2019%2F04%2FSam-Adams-Summer-1024x576.jpg&f=1&nofb=1',
+      beer_name: 'Summer Ale',
+      brewery: 'Samuel Adams',
       beer_type_id: wheat[0]._id,
       beer_type_name: wheat[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthefullpint.com%2Fwp-content%2Fuploads%2FBells-Oberon-Limited-EditioN-Can.jpg&f=1&nofb=1',
+      beer_name: 'Oberon Ale',
+      brewery: "Bell's Brewery",
       beer_type_id: wheat[0]._id,
       beer_type_name: wheat[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fkaiexclusivebeers.com%2Fwp-content%2Fuploads%2F2021%2F04%2FDrekker-Braaaaaaaains-Mango-Peach-Apricot-300x300.png&f=1&nofb=1',
+      beer_name: 'Braaaaaaaains - Mango, Peach, Apricot',
+      brewery: 'Drekker Brewing Company',
       beer_type_id: sour[0]._id,
       beer_type_name: sour[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcraftpeak-cooler-images.imgix.net%2Fevil-twin-brewing-nyc%2FDSC01409.jpg%3Fauto%3Dcompress%252Cformat%26fit%3Dcrop%26h%3D820%26ixlib%3Dphp-1.2.1%26w%3D1920%26wpsize%3Dbanner_wide&f=1&nofb=1',
+      beer_name: 'CONTINENTAL BREAKFAST SOUR - YOGHURT EDITION',
+      brewery: 'Evil Twin Brewing NYC',
       beer_type_id: sour[0]._id,
       beer_type_name: sour[0].style_name,
       avg_rating: '',
