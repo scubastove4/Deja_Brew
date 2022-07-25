@@ -17,3 +17,28 @@ const getAllBeers = async (req, res) => {
     return res.status(500).send(e.message)
   }
 }
+
+const getBeersByType = async (req, res) => {
+  try {
+    const beersByType = await Beer.find({ beer_type_id: req.params.beerTypeId })
+    return res.status(200).json({ beersByType })
+  } catch (e) {
+    return res.status(500).send(e.message)
+  }
+}
+
+const getBeerReviews = async (req, res) => {
+  try {
+    const beerReviews = await Review.find({ beer_id: req.params.beerId })
+    return res.status(200).json({ beerReviews })
+  } catch (e) {
+    return res.status(500).send(e.message)
+  }
+}
+
+module.exports = {
+  getAllBeerTypes,
+  getAllBeers,
+  getBeersByType,
+  getBeerReviews
+}
