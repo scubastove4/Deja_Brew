@@ -4,28 +4,31 @@ const { Beer, BeerType } = require('../models')
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 const main = async () => {
-  const amber = await BeerType.find({ style_name: { $in: 'Amber' } })
+  const amber = await BeerType.find({ style_name: { $in: [/Amber/] } })
   const ipa = await BeerType.find({
     $and: [
-      { style_name: { $in: 'India' } },
-      { style_name: { $nin: 'Double' } },
-      { style_name: { $nin: 'Hazy' } },
-      { style_name: { $nin: 'Session' } }
+      { style_name: { $in: [/India/] } },
+      { style_name: { $nin: [/Double/] } },
+      { style_name: { $nin: [/Hazy/] } },
+      { style_name: { $nin: [/Session/] } }
     ]
   })
-  const dipa = await BeerType.find({ style_name: { $in: 'Double' } })
-  const hipa = await BeerType.find({ style_name: { $in: 'Hazy' } })
-  const sipa = await BeerType.find({ style_name: { $in: 'Session' } })
+  const dipa = await BeerType.find({ style_name: { $in: [/Double/] } })
+  const hipa = await BeerType.find({ style_name: { $in: [/Hazy/] } })
+  const sipa = await BeerType.find({ style_name: { $in: [/Session/] } })
   const pale = await BeerType.find({
-    $and: [{ style_name: { $in: 'Pale' } }, { style_name: { $nin: 'India' } }]
+    $and: [
+      { style_name: { $in: [/Pale/] } },
+      { style_name: { $nin: [/India/] } }
+    ]
   })
-  const wheat = await BeerType.find({ style_name: { $in: 'Wheat' } })
-  const sour = await BeerType.find({ style_name: { $in: 'Sour' } })
-  const kolsch = await BeerType.find({ style_name: { $in: 'Kölsches' } })
-  const pils = await BeerType.find({ style_name: { $in: 'Pilsners' } })
-  const porter = await BeerType.find({ style_name: { $in: 'Porters' } })
-  const stout = await BeerType.find({ style_name: { $in: 'Stout' } })
-  const belg = await BeerType.find({ style_name: { $in: 'Belgian' } })
+  const wheat = await BeerType.find({ style_name: { $in: [/Wheat/] } })
+  const sour = await BeerType.find({ style_name: { $in: [/Sour/] } })
+  const kolsch = await BeerType.find({ style_name: { $in: [/Kölsches/] } })
+  const pils = await BeerType.find({ style_name: { $in: [/Pilsners/] } })
+  const porter = await BeerType.find({ style_name: { $in: [/Porters/] } })
+  const stout = await BeerType.find({ style_name: { $in: [/Stout/] } })
+  const belg = await BeerType.find({ style_name: { $in: [/Belgian/] } })
   let review
 
   const beers = [
