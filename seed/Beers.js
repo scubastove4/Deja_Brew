@@ -128,25 +128,27 @@ const main = async () => {
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.beeruniversestore.com%2Fwp-content%2Fuploads%2F2021%2F01%2FCamp-Wannamango-16ozcan-4pk-1001x1050-5a4e922-450x472.jpg&f=1&nofb=1',
+      beer_name: 'Camp Wannamango',
+      brewery: 'Harpoon Brewery',
       beer_type_id: pale[0]._id,
       beer_type_name: pale[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fbrewscale.com%2Fwp-content%2Fuploads%2F2012%2F07%2FIMG_0622-764x1024.jpg&f=1&nofb=1',
+      beer_name: 'Philadelphia Pale Ale',
+      brewery: 'Yards Brewing Company',
       beer_type_id: pale[0]._id,
       beer_type_name: pale[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
+      image: '',
       beer_name: '',
       brewery: '',
       beer_type_id: wheat[0]._id,
@@ -182,18 +184,19 @@ const main = async () => {
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image: 'https://i.imgur.com/lSWJHnW.jpg',
+      beer_name: 'Lemongrass Kölsch',
+      brewery: 'Big aLICe Brewing Company',
       beer_type_id: kolsch[0]._id,
       beer_type_name: kolsch[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic-eu.insales.ru%2Fimages%2Fproducts%2F1%2F7302%2F158538886%2FGaffel_Kolsch.jpg&f=1&nofb=1',
+      beer_name: 'Kölsch',
+      brewery: 'Gaffel',
       beer_type_id: kolsch[0]._id,
       beer_type_name: kolsch[0].style_name,
       avg_rating: '',
