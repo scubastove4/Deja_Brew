@@ -24,7 +24,7 @@ router.delete('/beer-types/:beerTypeId', beersControllers.deleteBeer)
 
 router.post('/beers/:beerId', reviewsControllers.createReview)
 
-router.put('/random-beer', beersControllers.getAllBeers)
+router.get('/random-beer', beersControllers.getAllBeers)
 router.get('/beers/:beerName', beersControllers.getBeersByName)
 router.get('/beers/:beerId', beersControllers.getBeerContents)
 

@@ -32,7 +32,7 @@ const getAllBeers = async (req, res) => {
 const getBeersByName = async (req, res) => {
   try {
     const { beerName } = await req.params
-    const beer = await Beer.find({ beer_name: { $in: beerName } })
+    const beer = await Beer.find({ beer_name: { $in: [`/${beerName}/`] } })
     return res.status(200).json({ beer })
   } catch (e) {
     return res.status(500).send(e.message)
@@ -78,9 +78,9 @@ const deleteBeer = async (req, res) => {
 module.exports = {
   createBeer,
   getAllBeers,
-  updateBeer,
-  deleteBeer,
-  // getBeersByType,
   getBeerContents,
-  getBeersByName
+  getBeersByName,
+  updateBeer,
+  deleteBeer
+  // getBeersByType,
 }
