@@ -13,7 +13,7 @@ const getBeerTypeContents = async (req, res) => {
   try {
     const { beerTypeId } = await req.params
     const beers = await Beer.find({ beer_type_id: beerTypeId })
-    const beerType = await ParkSection.findById(beerTypeId)
+    const beerType = await BeerType.findById(beerTypeId)
     return res.status(200).json({ beers, beerType })
   } catch (e) {
     return res.status(500).send(e.message)
@@ -23,7 +23,7 @@ const getBeerTypeContents = async (req, res) => {
 const getBeerTypesByName = async (req, res) => {
   try {
     const { beerTypeName } = await req.params
-    const beerType = await ParkSection.find({ style_name: beerTypeName })
+    const beerType = await BeerType.find({ style_name: { $in: beerTypeName } })
     return res.status(200).json({ beerType })
   } catch (e) {
     return res.status(500).send(e.message)

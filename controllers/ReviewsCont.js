@@ -10,15 +10,15 @@ const createReview = async (req, res) => {
   }
 }
 
-const getBeerReviews = async (req, res) => {
-  try {
-    const { beerId } = req.params
-    const beerReviews = await Review.find({ beer_id: beerId })
-    return res.status(200).json({ beerReviews })
-  } catch (e) {
-    return res.status(500).send(e.message)
-  }
-}
+// const getBeerReviews = async (req, res) => {
+//   try {
+//     const { beerId } = req.params
+//     const beerReviews = await Review.find({ beer_id: beerId })
+//     return res.status(200).json({ beerReviews })
+//   } catch (e) {
+//     return res.status(500).send(e.message)
+//   }
+// }
 
 const updateReview = async (req, res) => {
   try {
@@ -47,7 +47,7 @@ const deleteReview = async (req, res) => {
 
 module.exports = {
   createReview,
-  getBeerReviews,
+  // getBeerReviews,
   updateReview,
   deleteReview
 }
