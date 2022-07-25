@@ -21,13 +21,10 @@ const createBeer = async (req, res) => {
 
 const updateBeer = async (req, res) => {
   try {
-    const updateBeer = await Beer.findByIdAndUpdate(
-      req.params.beerId,
-      req.body,
-      {
-        new: true
-      }
-    )
+    const { beerId } = req.params
+    const updateBeer = await Beer.findByIdAndUpdate(beerId, req.body, {
+      new: true
+    })
     res.status(200).json(updateBeer)
   } catch (error) {
     return res.status(500).send(error.message)
@@ -45,7 +42,8 @@ const getAllBeers = async (req, res) => {
 
 const getBeersByType = async (req, res) => {
   try {
-    const beersByType = await Beer.find({ beer_type_id: req.params.beerTypeId })
+    const { beerTypeId } = req.params
+    const beersByType = await Beer.find({ beer_type_id: beerTypeId })
     return res.status(200).json({ beersByType })
   } catch (e) {
     return res.status(500).send(e.message)
@@ -62,25 +60,36 @@ const createReview = async (req, res) => {
   }
 }
 
+const getBeerReviews = async (req, res) => {
+  try {
+    const { beerId } = req.params
+    const beerReviews = await Review.find({ beer_id: beerId })
+    return res.status(200).json({ beerReviews })
+  } catch (e) {
+    return res.status(500).send(e.message)
+  }
+}
+
 const updateReview = async (req, res) => {
   try {
-    const updateReview = await Beer.findByIdAndUpdate(
-      req.params.reviewId,
-      req.body,
-      {
-        new: true
-      }
-    )
+    const { reviewId } = req.params
+    const updateReview = await Beer.findByIdAndUpdate(reviewId, req.body, {
+      new: true
+    })
     res.status(200).json(updateReview)
   } catch (error) {
     return res.status(500).send(error.message)
   }
 }
 
-const getBeerReviews = async (req, res) => {
+const deleteReview = async (req, res) => {
   try {
-    const beerReviews = await Review.find({ beer_id: req.params.beerId })
-    return res.status(200).json({ beerReviews })
+    const { reviewId } = req.params
+    const deleteReview = await Review.findByIdAndDelete(reviewId)
+    if (deleteReview) {
+      return res.status(200).send('Review deleted')
+    }
+    throw new Error('Review not found')
   } catch (e) {
     return res.status(500).send(e.message)
   }
@@ -89,10 +98,11 @@ const getBeerReviews = async (req, res) => {
 module.exports = {
   getAllBeerTypes,
   createBeer,
-  updateBeer,
   getAllBeers,
+  updateBeer,
   getBeersByType,
   createReview,
+  getBeerReviews,
   updateReview,
-  getBeerReviews
+  deleteReview
 }
