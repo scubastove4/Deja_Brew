@@ -32,7 +32,7 @@ const main = async () => {
     {
       image: 'https://i.imgur.com/1BljefC.jpg',
       beer_name: 'Grind & Shine Cold Brew Coffee',
-      brewery: 'Great South Bay',
+      brewery: 'Great South Bay Brewery',
       beer_type_id: amber[0]._id,
       beer_type_name: amber[0].style_name,
       avg_rating: '',
@@ -42,34 +42,37 @@ const main = async () => {
       image:
         'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.newbelgium.com%2Fglobalassets%2Fbeer%2Ffat-tire%2Ffat_tire_package_1080x720.png&f=1&nofb=1',
       beer_name: 'Fat Tire',
-      brewery: 'New Belgium',
+      brewery: 'New Belgium Brewing Company',
       beer_type_id: amber[0]._id,
       beer_type_name: amber[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthefullpint.com%2Fwp-content%2Fuploads%2FStone-IPA.jpg&f=1&nofb=1',
+      beer_name: 'Stone IPA',
+      brewery: 'Stone Brewing',
       beer_type_id: ipa[0]._id,
       beer_type_name: ipa[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.gannett-cdn.com%2F-mm-%2F2c2ebf3cbd70b36b7fef560bfb4c18721e289337%2Fc%3D0-208-2397-1562%2Flocal%2F-%2Fmedia%2F2018%2F06%2F21%2FDetroitFreeP%2FDetroitFreePress%2F636651790193851186-Bell-sTwoHeartedAle-2-.jpg%3Fwidth%3D3200%26height%3D1680%26fit%3Dcrop&f=1&nofb=1',
+      beer_name: 'Two Hearted Ale',
+      brewery: "Bell's Brewery",
       beer_type_id: ipa[0]._id,
       beer_type_name: ipa[0].style_name,
       avg_rating: '',
       num_of_reviews: ''
     },
     {
-      image: { type: String, required: true },
-      beer_name: '',
-      brewery: '',
+      image:
+        'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnextstop.blob.core.windows.net%2Farticle-images%2Fdaddywarbucks.jpeg&f=1&nofb=1',
+      beer_name: 'Daddy Warbucks (aka Imperial Money)',
+      brewery: 'Barrier Brewing Co.',
       beer_type_id: dipa[0]._id,
       beer_type_name: dipa[0].style_name,
       avg_rating: '',
