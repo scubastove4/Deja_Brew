@@ -54,10 +54,21 @@ const getBeersByType = async (req, res) => {
   }
 }
 
+const getBeersByName = async (req, res) => {
+  try {
+    const { beerName } = await req.params
+    const beer = await ParkSection.find({ beer_name: beerName })
+    return res.status(200).json({ beer })
+  } catch (e) {
+    return res.status(500).send(e.message)
+  }
+}
+
 module.exports = {
   createBeer,
   getAllBeers,
   updateBeer,
   deleteBeer,
-  getBeersByType
+  getBeersByType,
+  getBeersByName
 }

@@ -1,4 +1,4 @@
-const { BeerType } = require('../models')
+const { BeerType, Beer } = require('../models')
 
 const getAllBeerTypes = async (req, res) => {
   try {
@@ -20,7 +20,18 @@ const getBeerTypeContents = async (req, res) => {
   }
 }
 
+const getBeerTypesByName = async (req, res) => {
+  try {
+    const { beerTypeName } = await req.params
+    const beerType = await ParkSection.find({ style_name: beerTypeName })
+    return res.status(200).json({ beerType })
+  } catch (e) {
+    return res.status(500).send(e.message)
+  }
+}
+
 module.exports = {
   getAllBeerTypes,
-  getBeerTypeContents
+  getBeerTypeContents,
+  getBeerTypesByName
 }

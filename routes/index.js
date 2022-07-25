@@ -10,11 +10,14 @@ router.get('/', (req, res) => {
   res.send('I am root!')
 })
 
-router.post('/beer-types', beerTypesControllers.getAllBeerTypes)
+router.post('/beers', beersControllers.createBeer)
+router.post('/beers/:beerId', reviewsControllers.createReview)
 
-router.get('/beer-types', controllers.getAllPlants)
-
-router.get('/plants/:id', controllers.getPlantById)
+router.get('/beer-types', beerTypesControllers.getAllBeerTypes)
+router.get('/beer-types/:beerTypeId', beerTypesControllers.getBeerTypeContents)
+router.get('/beer-types/:beerTypeName', beerTypesControllers.getBeerTypesByName)
+router.get('/beers/:id', controllers.getPlantById)
+router.get('/beers/:beerName', controllers.getPlantById)
 
 router.put('/plants/:id', controllers.updatePlant)
 
