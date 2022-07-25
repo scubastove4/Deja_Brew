@@ -1,14 +1,18 @@
 const { Router } = require('express')
-const controllers = require('../controllers')
+const {
+  beerTypesControllers,
+  beersControllers,
+  reviewsControllers
+} = require('../controllers')
 const router = Router()
 
 router.get('/', (req, res) => {
   res.send('I am root!')
 })
 
-router.post('/beer-types', controllers.createPlant)
+router.post('/beer-types', beerTypesControllers.getAllBeerTypes)
 
-router.get('/plants', controllers.getAllPlants)
+router.get('/beer-types', controllers.getAllPlants)
 
 router.get('/plants/:id', controllers.getPlantById)
 
