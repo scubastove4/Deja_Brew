@@ -13,4 +13,6 @@ const Beer = new Schema(
   { timestamps: true }
 )
 
+Beer.index({ beer_name: 'text' })
+
 module.exports = Beer

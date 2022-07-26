@@ -14,7 +14,10 @@ router.get('/', (req, res) => {
 router.post('/beer-types/:beerTypeId', beersControllers.createBeer)
 
 router.get('/beer-types', beerTypesControllers.getAllBeerTypes)
-// router.get('/beer-types/find', beerTypesControllers.getBeerTypesByName)
+router.get(
+  '/beer-types/name/:beerTypeName',
+  beerTypesControllers.getBeerTypesByName
+)
 router.get(
   '/beer-types/id/:beerTypeId',
   beerTypesControllers.getBeerTypeContents
@@ -25,7 +28,7 @@ router.get(
 router.post('/beers/:beerId', reviewsControllers.createReview)
 
 router.get('/random-beer', beersControllers.getAllBeers)
-// router.get('/beers/name/:beerName', beersControllers.getBeersByName)
+router.get('/beers/name/:beerName', beersControllers.getBeersByName)
 router.get('/beers/id/:beerId', beersControllers.getBeerContents)
 
 router.put('/beers/id/:beerId', beersControllers.updateBeer)

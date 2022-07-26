@@ -24,8 +24,8 @@ function App() {
             path="/beer-types/id/:beerTypeId"
             element={<BeerTypeDetails />}
           />
-          <Route path="/beers/id/:beerId" element={<BeerDetails />} />
           <Route path="/random-beer" element={<RandomBeer />} />
+          <Route path="/beers/id/:beerId" element={<BeerDetails />} />
           <Route path="/beers/review/:reviewId" element={<ReviewDetails />} />
         </Routes>
       </main>

@@ -19,24 +19,22 @@ const getAllBeers = async (req, res) => {
   }
 }
 
+const getBeersByName = async (req, res) => {
+  try {
+    const { beerName } = await req.params
+    const beer = await Beer.find({
+      $text: { $search: beerName }
+    }).limit(15)
+    return res.status(200).json({ beer })
+  } catch (e) {
+    return res.status(500).send(e.message)
+  }
+}
 // const getBeersByType = async (req, res) => {
 //   try {
 //     const { beerTypeId } = req.params
 //     const beersByType = await Beer.find({ beer_type_id: beerTypeId })
 //     return res.status(200).json({ beersByType })
-//   } catch (e) {
-//     return res.status(500).send(e.message)
-//   }
-// }
-
-////////////////////////////////////////////////////////////////////////////////
-//option for below at this point is send everything then filter on the frontend
-
-// const getBeersByName = async (req, res) => {
-//   try {
-//     const { beerName } = await req.params
-//     const beer = await Beer.find({ beer_name: { $in: [`/${beerName}/`] } })
-//     return res.status(200).json({ beer })
 //   } catch (e) {
 //     return res.status(500).send(e.message)
 //   }
@@ -86,7 +84,7 @@ module.exports = {
   createBeer,
   getAllBeers,
   getBeerContents,
-  // getBeersByName,
+  getBeersByName,
   updateBeer,
   deleteBeer
   // getBeersByType,
