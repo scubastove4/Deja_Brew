@@ -3,10 +3,12 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
 import BeerCard from '../components/BeerCard'
+import BeerForm from '../components/BeerForm'
 
 const BeerTypeDetails = () => {
   const [beerTypeContents, setBeerTypeContents] = useState({})
   const [beerTypContentsHere, setBeerTypeContentsHere] = useState(false)
+  const [formDisplay, setFormDisplay] = useState('none')
   const { beerTypeId } = useParams()
 
   useEffect(() => {
@@ -25,9 +27,17 @@ const BeerTypeDetails = () => {
     renderBeerTypeContents()
   }, [])
 
+  const displayNewBeerForm = (e) => {
+    e.preventDefault()
+    formDisplay === 'none' ? setFormDisplay('flex') : setFormDisplay('none')
+  }
+
   return (
     <div>
-      <button>Add New Beer!</button>
+      <button onClick={displayNewBeerForm}>Add New Beer!</button>
+      <div style={{ display: `${formDisplay}` }}>
+        <BeerForm beerType={beerTypeContents.beerType} />
+      </div>
       {beerTypContentsHere ? (
         <section>
           <h1>{beerTypeContents.beerType.style_name}</h1>
