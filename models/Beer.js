@@ -2,7 +2,7 @@ const { Schema } = require('mongoose')
 
 const Beer = new Schema(
   {
-    image: { type: String, required: true },
+    image: { type: String, required: false },
     beer_name: { type: String, required: true },
     brewery: { type: String, required: true },
     beer_type_id: { type: Schema.Types.ObjectId, ref: 'BeerType' },

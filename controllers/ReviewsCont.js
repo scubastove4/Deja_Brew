@@ -23,7 +23,7 @@ const createReview = async (req, res) => {
 const updateReview = async (req, res) => {
   try {
     const { reviewId } = req.params
-    const updateReview = await Beer.findByIdAndUpdate(reviewId, req.body, {
+    const updateReview = await Review.findByIdAndUpdate(reviewId, req.body, {
       new: true
     })
     res.status(200).json(updateReview)

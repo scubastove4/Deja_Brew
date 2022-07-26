@@ -14,23 +14,27 @@ router.get('/', (req, res) => {
 router.post('/beer-types/:beerTypeId', beersControllers.createBeer)
 
 router.get('/beer-types', beerTypesControllers.getAllBeerTypes)
-router.get('/beer-types/:beerTypeName', beerTypesControllers.getBeerTypesByName)
-router.get('/beer-types/:beerTypeId', beerTypesControllers.getBeerTypeContents)
+// router.get('/beer-types/find', beerTypesControllers.getBeerTypesByName)
+router.get(
+  '/beer-types/id/:beerTypeId',
+  beerTypesControllers.getBeerTypeContents
+)
 
-router.put('/beer-types/:beerTypeId', beersControllers.updateBeer)
-
-router.delete('/beer-types/:beerTypeId', beersControllers.deleteBeer)
 ////////// BeerType Routes above //////////////
 
 router.post('/beers/:beerId', reviewsControllers.createReview)
 
 router.get('/random-beer', beersControllers.getAllBeers)
-router.get('/beers/:beerName', beersControllers.getBeersByName)
-router.get('/beers/:beerId', beersControllers.getBeerContents)
+// router.get('/beers/name/:beerName', beersControllers.getBeersByName)
+router.get('/beers/id/:beerId', beersControllers.getBeerContents)
 
-router.put('/beers/:beerId', reviewsControllers.updateReview)
+router.put('/beers/id/:beerId', beersControllers.updateBeer)
 
-router.delete('/beers/:beerId', reviewsControllers.deleteReview)
+router.delete('/beers/id/:beerId', beersControllers.deleteBeer)
 ////////// Beer Routes above //////////////
+
+router.put('/beers/review/:reviewId', reviewsControllers.updateReview)
+router.delete('/beers/review/:reviewId', reviewsControllers.deleteReview)
+////////// Review Routes above //////////////
 
 module.exports = router

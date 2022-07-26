@@ -2,9 +2,9 @@ const { Beer, Review } = require('../models')
 
 const createBeer = async (req, res) => {
   try {
-    const newReview = await new Review(req.body)
-    await newReview.save()
-    return res.status(201).json({ newReview })
+    const newBeer = await new Beer(req.body)
+    await newBeer.save()
+    return res.status(201).json({ newBeer })
   } catch (e) {
     return res.status(500).send(e.message)
   }
@@ -29,15 +29,15 @@ const getAllBeers = async (req, res) => {
 //   }
 // }
 
-const getBeersByName = async (req, res) => {
-  try {
-    const { beerName } = await req.params
-    const beer = await Beer.find({ beer_name: { $in: [`/${beerName}/`] } })
-    return res.status(200).json({ beer })
-  } catch (e) {
-    return res.status(500).send(e.message)
-  }
-}
+// const getBeersByName = async (req, res) => {
+//   try {
+//     const { beerName } = await req.params
+//     const beer = await Beer.find({ beer_name: { $in: [`/${beerName}/`] } })
+//     return res.status(200).json({ beer })
+//   } catch (e) {
+//     return res.status(500).send(e.message)
+//   }
+// }
 
 const getBeerContents = async (req, res) => {
   try {
@@ -65,9 +65,13 @@ const updateBeer = async (req, res) => {
 const deleteBeer = async (req, res) => {
   try {
     const { beerId } = req.params
-    const deleteBeer = await Review.findByIdAndDelete(beerId)
+    const deleteBeer = await Beer.findByIdAndDelete(beerId)
+    const deleteReviews = await Review.deleteMany({ beer_id: beerId })
     if (deleteBeer) {
       return res.status(200).send('Beer deleted')
+    }
+    if (deleteReviews) {
+      return res.status(200).send('Reviews deleted, too')
     }
     throw new Error('Beer not found')
   } catch (e) {
@@ -79,7 +83,7 @@ module.exports = {
   createBeer,
   getAllBeers,
   getBeerContents,
-  getBeersByName,
+  // getBeersByName,
   updateBeer,
   deleteBeer
   // getBeersByType,
