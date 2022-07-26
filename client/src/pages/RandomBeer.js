@@ -6,23 +6,6 @@ const RandomBeer = () => {
   const [beerPicked, setBeerPicked] = useState(false)
 
   useEffect(() => {
-    // const getRandomBeer = async () => {
-    //   let random
-    //   try {
-    //     const res = await axios.get(`http://localhost:3001/api/random-beer`)
-    //     setBeerPicked(true)
-    //     beerPicked && setBeerArr(res.data.beers)
-    //     random = Math.ceil(Math.random() * (beerArr.length - 1))
-    //     if (random === -0) random = 0
-    //     setRandomBeer(beerArr[random])
-    //     console.log(beerArr)
-    //     console.log(random)
-    //     console.log(randomBeer)
-    //   } catch (e) {
-    //     console.error(e)
-    //   }
-    // }
-    // getRandomBeer()
     const renderRandomBeer = async () => {
       try {
         const res = await axios.get(`http://localhost:3001/api/random-beer`)
@@ -34,7 +17,12 @@ const RandomBeer = () => {
       }
     }
     renderRandomBeer()
-  }, [])
+  }, [!beerPicked])
+
+  const randomOnClick = (e) => {
+    e.preventDefault()
+    beerPicked && setBeerPicked(false)
+  }
 
   return (
     <div>
@@ -46,7 +34,7 @@ const RandomBeer = () => {
       ) : (
         'Try hitting the button below'
       )}
-      <button>Get New Beer!</button>
+      <button onClick={randomOnClick}>Get New Beer!</button>
     </div>
   )
 }
