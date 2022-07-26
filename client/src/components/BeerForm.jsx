@@ -1,10 +1,7 @@
-import { useEffect } from 'react'
-import { useState } from 'react'
-
-const BeerForm = ({ beerType, newBeer, newBeerInput }) => {
+const BeerForm = ({ newBeer, newBeerInput, addNewBeer }) => {
   return (
     <div>
-      <form>
+      <form onSubmit={(e) => addNewBeer(e)}>
         <input
           id="image"
           type="text"
@@ -26,6 +23,7 @@ const BeerForm = ({ beerType, newBeer, newBeerInput }) => {
           onInput={newBeerInput}
           placeholder="Brewery Name"
         />
+        <button type="submit">Create Beer Entry</button>
       </form>
     </div>
   )

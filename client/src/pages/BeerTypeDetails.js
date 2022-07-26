@@ -50,6 +50,20 @@ const BeerTypeDetails = () => {
     setNewBeer({ ...newBeer, [e.target.id]: e.target.value })
   }
 
+  const addNewBeer = async (e) => {
+    e.preventDefault()
+    try {
+      const res = await axios.post(
+        `http://localhost:3001/api/beer-types/id/${beerTypeId}`,
+        newBeer
+      )
+      console.log(res)
+      setNewBeer(initialState)
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
   return (
     <div>
       <button onClick={() => displayNewBeerForm(beerTypeContents.beerType)}>
@@ -60,6 +74,7 @@ const BeerTypeDetails = () => {
           beerType={beerTypeContents.beerType}
           newBeer={newBeer}
           newBeerInput={newBeerInput}
+          addNewBeer={addNewBeer}
         />
       </div>
       {beerTypContentsHere ? (
