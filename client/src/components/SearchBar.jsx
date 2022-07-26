@@ -21,17 +21,19 @@ const SearchBar = ({
           placeholder="Search Beers or Types!"
           onInput={newSearchQuery}
         />
-        <label for="beers/name/">Beers</label>
+        <label htmlFor="beerInput">Beers</label>
         <input
           type="radio"
+          id="beerInput"
           name="beers/name/"
           value="beer"
           onChange={changeSearchType}
           checked={searchType === 'beer'}
         />
-        <label for="beer-types/name/">Beer Types</label>
+        <label htmlFor="beerTypeInput">Beer Types</label>
         <input
           type="radio"
+          id="beerTypeInput"
           name="beer-types/name/"
           value="beerType"
           onChange={changeSearchType}

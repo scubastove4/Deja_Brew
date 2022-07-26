@@ -12,4 +12,6 @@ const BeerType = new Schema(
 
 BeerType.index({ style_name: 'text' })
 
+//help with text search https://stackoverflow.com/questions/28775051/best-way-to-perform-a-full-text-search-in-mongodb-and-mongoose
+
 module.exports = BeerType
