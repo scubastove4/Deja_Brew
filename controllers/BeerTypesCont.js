@@ -20,6 +20,8 @@ const getBeerTypeContents = async (req, res) => {
   }
 }
 
+//option at this point is send everything then filter on the frontend
+
 // const getBeerTypesByName = async (req, res) => {
 //   try {
 //     const { beerTypeName } = await req.params
