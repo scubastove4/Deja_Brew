@@ -4,9 +4,9 @@ const NavBar = () => {
   return (
     <nav>
       <Link to="/">Home</Link>
-      <Link to="/">About</Link>
-      <Link to="/">Random Beer</Link>
-      <Link to="/">Beer Types</Link>
+      <Link to="/about">About</Link>
+      <Link to="/random-beer">Random Beer</Link>
+      <Link to="/beer-types">Beer Types</Link>
     </nav>
   )
 }

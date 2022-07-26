@@ -2,6 +2,7 @@ const SearchBar = ({
   newSearchQuery,
   changeSearchType,
   clickSearch,
+  searchQuery,
   searchType
 }) => {
   let buttonText = 'Search'
@@ -13,20 +14,25 @@ const SearchBar = ({
 
   return (
     <div>
-      <form onClick={clickSearch}>
-        <input type="text" onInput={newSearchQuery} />
-        <label for="beer">Beers</label>
+      <form onSubmit={(e) => clickSearch(e)}>
+        <input
+          type="text"
+          value={searchQuery}
+          placeholder="Search Beers or Types!"
+          onInput={newSearchQuery}
+        />
+        <label for="beers/name/">Beers</label>
         <input
           type="radio"
-          name="beer"
+          name="beers/name/"
           value="beer"
           onChange={changeSearchType}
           checked={searchType === 'beer'}
         />
-        <label for="beerType">Beer Types</label>
+        <label for="beer-types/name/">Beer Types</label>
         <input
           type="radio"
-          name="beerType"
+          name="beer-types/name/"
           value="beerType"
           onChange={changeSearchType}
           checked={searchType === 'beerType'}
