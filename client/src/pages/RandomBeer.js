@@ -9,7 +9,6 @@ const RandomBeer = () => {
     const renderRandomBeer = async () => {
       try {
         const res = await axios.get(`http://localhost:3001/api/random-beer`)
-        // console.log(res.data.randomBeer)
         setRandomBeer(res.data.randomBeer)
         setBeerPicked(true)
       } catch (e) {
