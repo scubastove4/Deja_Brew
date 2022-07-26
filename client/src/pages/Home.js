@@ -31,7 +31,6 @@ const Home = () => {
         `http://localhost:3001/api/${searchUrl}${searchQuery}`
       )
       toggleSearched(true)
-      console.log(res.data)
       if (searchType === 'beerType') {
         setSearchResults(res.data.beerType)
       } else if (searchType === 'beer') {

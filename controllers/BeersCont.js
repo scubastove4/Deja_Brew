@@ -10,10 +10,12 @@ const createBeer = async (req, res) => {
   }
 }
 
-const getAllBeers = async (req, res) => {
+const getRandomBeer = async (req, res) => {
   try {
     const beers = await Beer.find()
-    return res.status(200).json({ beers })
+    let random = Math.ceil(Math.random() * (beers.length - 1))
+    let randomBeer = beers[random]
+    return res.status(200).json({ randomBeer })
   } catch (e) {
     return res.status(500).send(e.message)
   }
@@ -82,7 +84,7 @@ const deleteBeer = async (req, res) => {
 
 module.exports = {
   createBeer,
-  getAllBeers,
+  getRandomBeer,
   getBeerContents,
   getBeersByName,
   updateBeer,
