@@ -25,7 +25,7 @@ const BeerTypes = () => {
   }, [])
 
   const showBeersByType = (beerType) => {
-    navigate('http://localhost:3001/api/beer-types')
+    navigate(`/beer-types/id/${beerType._id}`)
   }
 
   return (
@@ -34,7 +34,10 @@ const BeerTypes = () => {
         <main>
           {beerTypes.map((beerType) => (
             <div key={beerType._id}>
-              <BeerTypeCard beerType={beerType} />
+              <BeerTypeCard
+                beerType={beerType}
+                showBeersByType={showBeersByType}
+              />
             </div>
           ))}
         </main>

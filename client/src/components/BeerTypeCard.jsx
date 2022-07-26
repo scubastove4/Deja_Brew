@@ -1,6 +1,6 @@
-const BeerTypeCard = ({ beerType }) => {
+const BeerTypeCard = ({ beerType, showBeersByType }) => {
   return (
-    <div>
+    <div onClick={() => showBeersByType(beerType)}>
       <h2>{beerType.style_name}</h2>
       <img src={beerType.image} alt="Beer Type" />
     </div>
