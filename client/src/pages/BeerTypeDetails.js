@@ -10,6 +10,16 @@ const BeerTypeDetails = () => {
   const [beerTypContentsHere, setBeerTypeContentsHere] = useState(false)
   const [formDisplay, setFormDisplay] = useState('none')
   const { beerTypeId } = useParams()
+  const initialState = {
+    image: '',
+    beer_name: '',
+    brewery: '',
+    beer_type_id: '',
+    beer_type_name: '',
+    avg_rating: '',
+    num_of_reviews: ''
+  }
+  const [newBeer, setNewBeer] = useState(initialState)
 
   useEffect(() => {
     const renderBeerTypeContents = async () => {
@@ -27,16 +37,30 @@ const BeerTypeDetails = () => {
     renderBeerTypeContents()
   }, [])
 
-  const displayNewBeerForm = (e) => {
-    e.preventDefault()
+  const displayNewBeerForm = (beerType) => {
     formDisplay === 'none' ? setFormDisplay('flex') : setFormDisplay('none')
+    setNewBeer({
+      ...newBeer,
+      beer_type_id: beerType._id,
+      beer_type_name: beerType.style_name
+    })
+  }
+
+  const newBeerInput = (e) => {
+    setNewBeer({ ...newBeer, [e.target.id]: e.target.value })
   }
 
   return (
     <div>
-      <button onClick={displayNewBeerForm}>Add New Beer!</button>
+      <button onClick={() => displayNewBeerForm(beerTypeContents.beerType)}>
+        Add New Beer!
+      </button>
       <div style={{ display: `${formDisplay}` }}>
-        <BeerForm beerType={beerTypeContents.beerType} />
+        <BeerForm
+          beerType={beerTypeContents.beerType}
+          newBeer={newBeer}
+          newBeerInput={newBeerInput}
+        />
       </div>
       {beerTypContentsHere ? (
         <section>
