@@ -27,6 +27,7 @@ const BeerTypeDetails = () => {
 
   return (
     <div>
+      <button>Add New Beer!</button>
       {beerTypContentsHere ? (
         <section>
           <h1>{beerTypeContents.beerType.style_name}</h1>
