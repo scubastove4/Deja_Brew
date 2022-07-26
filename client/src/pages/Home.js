@@ -31,8 +31,12 @@ const Home = () => {
         `http://localhost:3001/api/${searchUrl}${searchQuery}`
       )
       toggleSearched(true)
-      console.log(res.data.beerType)
-      setSearchResults(res.data.beerType)
+      console.log(res.data)
+      if (searchType === 'beerType') {
+        setSearchResults(res.data.beerType)
+      } else if (searchType === 'beer') {
+        setSearchResults(res.data.beer)
+      }
       setSearchQuery('')
     } catch (error) {
       console.log(error)
@@ -60,7 +64,7 @@ const Home = () => {
           ) : (
             <main>
               {searchResults.map((result) => (
-                <BeerCard key={result._id} beerType={result} />
+                <BeerCard key={result._id} beer={result} />
               ))}
             </main>
           )
