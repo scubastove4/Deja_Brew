@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react'
-import { useLoadScript } from '@react-google-maps/api'
+import { useState, useEffect, useMemo } from 'react'
+import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
+import axios from 'axios'
 
 import Map from '../components/Map'
 
@@ -15,8 +16,8 @@ const Breweries = () => {
     const getUserLocation = async (position) => {
       await setUserLocation({
         ...userLocation,
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
+        lat: Number(position.coords.latitude),
+        lng: Number(position.coords.longitude)
       })
       console.log(position)
     }
@@ -33,19 +34,28 @@ const Breweries = () => {
     getLocation()
   }, [])
 
-  const center = userLocation
+  const center = useMemo(() => userLocation, [])
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
-    id: 'google-map-script'
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
   })
 
-  // geolocation help https://youtu.be/U3dLjHN0UvM and https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs and https://www.npmjs.com/package/@react-google-maps/api
+  if (!isLoaded) return <div>Loading...</div>
+
+  // geolocation help https://youtu.be/U3dLjHN0UvM and https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
+
+  // Google Maps help https://www.npmjs.com/package/@react-google-maps/api and https://youtu.be/9e-5QHpadi0
 
   return (
-    <div>
-      <div id="map"></div>
-    </div>
+    <GoogleMap
+      zoom={10}
+      setCenter={center}
+      mapContainerClassName="map-container"
+      // mapContainerStyle={containerStyle}
+      // onLoad={Load}
+    >
+      <Marker setPosition={center} />
+    </GoogleMap>
   )
 }
 
