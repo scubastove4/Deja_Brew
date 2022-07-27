@@ -33,7 +33,7 @@ const BeerDetails = () => {
       }
     }
     renderBeerContents()
-  }, [])
+  }, [newReview])
 
   const displayNewReviewForm = (beer) => {
     formDisplay === 'none' ? setFormDisplay('flex') : setFormDisplay('none')

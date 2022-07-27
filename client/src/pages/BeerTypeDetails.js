@@ -36,7 +36,7 @@ const BeerTypeDetails = () => {
       }
     }
     renderBeerTypeContents()
-  }, [])
+  }, [newBeer])
 
   const displayNewBeerForm = (beerType) => {
     formDisplay === 'none' ? setFormDisplay('flex') : setFormDisplay('none')
