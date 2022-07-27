@@ -36,7 +36,10 @@ router.put('/beers/id/:beerId', beersControllers.updateBeer)
 router.delete('/beers/id/:beerId', beersControllers.deleteBeer)
 ////////// Beer Routes above //////////////
 
+router.get('/beers/review/:reviewId', reviewsControllers.getReview)
+
 router.put('/beers/review/:reviewId', reviewsControllers.updateReview)
+
 router.delete('/beers/review/:reviewId', reviewsControllers.deleteReview)
 ////////// Review Routes above //////////////
 
