@@ -65,6 +65,27 @@ const BeerDetails = () => {
     navigate(`/beers/review/${review._id}`)
   }
 
+  // const avgRating = beerContents.reviews.map((review) => Number(review.rating))
+  // .reduce(
+  //   (accumulator, value) =>
+  //     (accumulator + value) / beerContents.reviews.length,
+  //   0
+  // )
+
+  const getAvgRating = () => {
+    const ratingArr = []
+    beerContents.reviews.forEach((review) =>
+      ratingArr.push(Number(review.rating))
+    )
+    const ratingSum = ratingArr.reduce(
+      (accumulator, value) => accumulator + value,
+      0
+    )
+    return Math.round((ratingSum / beerContents.reviews.length) * 100) / 100
+  }
+
+  const avgRating = getAvgRating()
+
   return (
     <div>
       <button onClick={() => displayNewReviewForm(beerContents.beer)}>
@@ -82,6 +103,8 @@ const BeerDetails = () => {
         <section>
           <h1>{beerContents.beer.beer_name}</h1>
           <img src={beerContents.beer.image} alt="Beer" />
+          <h2>Number of Reviews: {beerContents.reviews.length}</h2>
+          <h2>Average Rating: {avgRating}</h2>
           <main>
             {beerContents.reviews.map((review) => (
               <div key={review._id}>
