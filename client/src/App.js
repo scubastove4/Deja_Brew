@@ -8,6 +8,7 @@ import BeerTypeDetails from './pages/BeerTypeDetails'
 import BeerDetails from './pages/BeerDetails'
 import RandomBeer from './pages/RandomBeer'
 import ReviewDetails from './pages/ReviewDetails'
+import Breweries from './pages/Breweries'
 
 import './App.css'
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/random-beer" element={<RandomBeer />} />
           <Route path="/beers/id/:beerId" element={<BeerDetails />} />
           <Route path="/beers/review/:reviewId" element={<ReviewDetails />} />
+          <Route path="/breweries" element={<Breweries />} />
         </Routes>
       </main>
     </div>

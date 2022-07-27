@@ -14,7 +14,6 @@ const BeerTypes = () => {
     const renderBeerTypes = async () => {
       try {
         const res = await axios.get('http://localhost:3001/api/beer-types')
-        // console.log(res.data.beerTypes)
         setBeerTypes(res.data.beerTypes)
         setBeerTypesHere(true)
       } catch (e) {

@@ -61,28 +61,32 @@ const Home = () => {
       />
       <section>
         {searched ? (
-          searchType === 'beerType' ? (
-            <main>
-              {searchResults.map((result) => (
-                <div key={result._id}>
-                  <BeerTypeCard
-                    beerType={result}
-                    showBeersByType={showBeersByType}
-                  />
-                </div>
-              ))}
-            </main>
+          searchResults.length > 0 ? (
+            searchType === 'beerType' ? (
+              <main>
+                {searchResults.map((result) => (
+                  <div key={result._id}>
+                    <BeerTypeCard
+                      beerType={result}
+                      showBeersByType={showBeersByType}
+                    />
+                  </div>
+                ))}
+              </main>
+            ) : (
+              <main>
+                {searchResults.map((result) => (
+                  <div key={result._id}>
+                    <BeerCard beer={result} showBeer={showBeer} />
+                  </div>
+                ))}
+              </main>
+            )
           ) : (
-            <main>
-              {searchResults.map((result) => (
-                <div key={result._id}>
-                  <BeerCard beer={result} showBeer={showBeer} />
-                </div>
-              ))}
-            </main>
+            <h2>Please Try Search Again</h2>
           )
         ) : (
-          <h2>Please Try Search Again</h2>
+          <h2>Search for Beer or Beer Type Above</h2>
         )}
       </section>
     </div>
