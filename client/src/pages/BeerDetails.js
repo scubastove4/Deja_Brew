@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 import ReviewCard from '../components/ReviewCard'
+import ReviewForm from '../components/ReviewForm'
 
 const BeerDetails = () => {
   const [beerContents, setBeerContents] = useState({})
@@ -44,11 +45,34 @@ const BeerDetails = () => {
   const newReviewInput = (e) => {
     setNewReview({ ...newReview, [e.target.id]: e.target.value })
   }
+
+  const addNewReview = async (e) => {
+    e.preventDefault()
+    try {
+      const res = await axios.post(
+        `http://localhost:3001/api/beers/id/${beerId}`,
+        newReview
+      )
+      console.log(res)
+      setNewReview(initialState)
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
   return (
     <div>
       <button onClick={() => displayNewReviewForm(beerContents.beer)}>
         Add New Review!
       </button>
+      <div style={{ display: `${formDisplay}` }}>
+        <ReviewForm
+          beer={beerContents.beer}
+          newReview={newReview}
+          newReviewInput={newReviewInput}
+          addNewReview={addNewReview}
+        />
+      </div>
       {beerContentsHere ? (
         <section>
           <h1>{beerContents.beer.beer_name}</h1>
