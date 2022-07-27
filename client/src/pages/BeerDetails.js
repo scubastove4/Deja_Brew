@@ -17,6 +17,7 @@ const BeerDetails = () => {
     comment: ''
   }
   const [newReview, setNewReview] = useState(initialState)
+  let navigate = useNavigate()
 
   useEffect(() => {
     const renderBeerContents = async () => {
@@ -60,6 +61,10 @@ const BeerDetails = () => {
     }
   }
 
+  const updateReview = (review) => {
+    navigate(`/beers/review/${review._id}`)
+  }
+
   return (
     <div>
       <button onClick={() => displayNewReviewForm(beerContents.beer)}>
@@ -80,7 +85,7 @@ const BeerDetails = () => {
           <main>
             {beerContents.reviews.map((review) => (
               <div key={review._id}>
-                <ReviewCard review={review} newReviewInput={newReviewInput} />
+                <ReviewCard review={review} updateReview={updateReview} />
               </div>
             ))}
           </main>

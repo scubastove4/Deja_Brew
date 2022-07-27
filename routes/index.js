@@ -25,7 +25,7 @@ router.get(
 
 ////////// BeerType Routes above //////////////
 
-router.post('/beers/:beerId', reviewsControllers.createReview)
+router.post('/beers/id/:beerId', reviewsControllers.createReview)
 
 router.get('/random-beer', beersControllers.getRandomBeer)
 router.get('/beers/name/:beerName', beersControllers.getBeersByName)
