@@ -1,6 +1,7 @@
-import { set } from 'mongoose'
 import { useState, useEffect } from 'react'
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api'
+import { useLoadScript } from '@react-google-maps/api'
+
+import Map from '../components/Map'
 
 const Breweries = () => {
   const [userLocation, setUserLocation] = useState({
@@ -34,9 +35,9 @@ const Breweries = () => {
 
   const center = userLocation
 
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
+    id: 'google-map-script'
   })
 
   // geolocation help https://youtu.be/U3dLjHN0UvM and https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs and https://www.npmjs.com/package/@react-google-maps/api
