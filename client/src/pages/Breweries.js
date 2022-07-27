@@ -9,6 +9,7 @@ const Breweries = () => {
     lng: ''
   })
   const [nearbyBreweries, setNearbyBreweries] = useState({})
+  const [breweriesHere, setBreweriesHere] = useState(false)
   // const [error, setError] = useState('')
 
   useEffect(() => {
@@ -42,6 +43,7 @@ const Breweries = () => {
         )
         // console.log(res.data)
         setNearbyBreweries(res.data)
+        setBreweriesHere(true)
       } catch (e) {
         console.error(e)
       }
@@ -54,7 +56,16 @@ const Breweries = () => {
   // Google Maps help https://www.npmjs.com/package/@react-google-maps/api and https://youtu.be/9e-5QHpadi0
 
   return (
-    <BrewMap userLocation={userLocation} nearbyBreweries={nearbyBreweries} />
+    <div>
+      {breweriesHere && userLocation ? (
+        <BrewMap
+          userLocation={userLocation}
+          nearbyBreweries={nearbyBreweries}
+        />
+      ) : (
+        <h1>Loading Brewery Map</h1>
+      )}
+    </div>
   )
 }
 

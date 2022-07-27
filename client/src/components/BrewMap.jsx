@@ -7,7 +7,17 @@ const BrewMap = ({ userLocation, google, nearbyBreweries }) => {
   return (
     <div>
       {userLocation ? (
-        <Map google={google} zoom={14} center={userLocation}></Map>
+        <Map google={google} zoom={12} initialCenter={userLocation}>
+          {nearbyBreweries.map((brewery) => (
+            <Marker
+              key={brewery.id}
+              position={{
+                lat: Number(brewery.latitude),
+                lng: Number(brewery.longitude)
+              }}
+            />
+          ))}
+        </Map>
       ) : null}
     </div>
   )
