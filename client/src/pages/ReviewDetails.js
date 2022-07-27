@@ -5,13 +5,10 @@ import axios from 'axios'
 const ReviewDetails = () => {
   const [reviewContents, setReviewContents] = useState({})
   const { reviewId } = useParams()
-  const initialState = {
-    review_id: reviewId,
-    author: reviewContents.author,
+  const [updateReview, setUpdateReview] = useState({
     rating: reviewContents.rating,
     comment: reviewContents.comment
-  }
-  const [updateReview, setUpdateReview] = useState(initialState)
+  })
 
   useEffect(() => {
     const getReview = async () => {
@@ -25,33 +22,48 @@ const ReviewDetails = () => {
   }, [])
 
   const updateInputValue = (e) => {
-    setUpdateReview({ ...updateReview, [e.target.id]: e.target.value })
+    e.target.value &&
+      setUpdateReview({ ...updateReview, [e.target.id]: e.target.value })
   }
 
   const putReview = async (e) => {
     e.preventDefault()
     const res = await axios.put(
       `http://localhost:3001/api/beers/review/${reviewId}`,
-      reviewId,
       updateReview
     )
-    setUpdateReview(initialState)
+    console.log(res)
+  }
+
+  const deleteReview = async (e) => {
+    e.preventDefault()
+    const res = await axios.delete(
+      `http://localhost:3001/api/beers/review/${reviewId}`
+    )
+    console.log(res)
   }
 
   return (
     <div>
       <h2>{reviewContents.author}</h2>
-      <form>
+      <form onSubmit={putReview}>
         <input
           id="rating"
-          value={reviewContents.rating}
+          value={updateReview.rating}
           onInput={updateInputValue}
+          placeholder={reviewContents.rating}
+          minLength="0"
+          maxLength="4"
         />
         <textarea
           id="comment"
-          value={reviewContents.comment}
+          value={updateReview.comment}
           onInput={updateInputValue}
+          placeholder={reviewContents.comment}
+          maxLength="100"
+          minLength="0"
         ></textarea>
+        <button type="submit">Update Review</button>
       </form>
     </div>
   )
