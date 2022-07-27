@@ -13,7 +13,7 @@ const Home = () => {
   const [searchResults, setSearchResults] = useState({})
   const [searched, toggleSearched] = useState(false)
 
-  // let navigate = useNavigate()
+  let navigate = useNavigate()
 
   const newSearchQuery = (e) => {
     setSearchQuery(e.target.value)
@@ -42,6 +42,10 @@ const Home = () => {
     }
   }
 
+  const showBeer = (beer) => {
+    navigate(`/beers/id/${beer._id}`)
+  }
+
   return (
     <div>
       <SearchBar
@@ -63,7 +67,9 @@ const Home = () => {
           ) : (
             <main>
               {searchResults.map((result) => (
-                <BeerCard key={result._id} beer={result} />
+                <div key={result._id}>
+                  <BeerCard beer={result} showBeer={showBeer} />
+                </div>
               ))}
             </main>
           )

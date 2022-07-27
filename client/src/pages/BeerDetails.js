@@ -65,13 +65,6 @@ const BeerDetails = () => {
     navigate(`/beers/review/${review._id}`)
   }
 
-  // const avgRating = beerContents.reviews.map((review) => Number(review.rating))
-  // .reduce(
-  //   (accumulator, value) =>
-  //     (accumulator + value) / beerContents.reviews.length,
-  //   0
-  // )
-
   const getAvgRating = () => {
     const ratingArr = []
     let avgRating
