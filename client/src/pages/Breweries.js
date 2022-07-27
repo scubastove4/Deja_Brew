@@ -7,6 +7,7 @@ const Breweries = () => {
     long: ''
   })
   const [error, setError] = useState('')
+  let map
 
   useEffect(() => {
     const getUserLocation = async (position) => {
@@ -30,9 +31,17 @@ const Breweries = () => {
     getLocation()
   }, [])
 
+  const initMap = () => {
+    map = new google.maps.Map()
+  }
+
   // geolocation help https://youtu.be/U3dLjHN0UvM and https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
 
-  return <div>Breweries</div>
+  return (
+    <div>
+      <div id="map"></div>
+    </div>
+  )
 }
 
 export default Breweries
