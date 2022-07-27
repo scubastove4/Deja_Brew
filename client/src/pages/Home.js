@@ -41,6 +41,9 @@ const Home = () => {
       console.log(error)
     }
   }
+  const showBeersByType = (beerType) => {
+    navigate(`/beer-types/id/${beerType._id}`)
+  }
 
   const showBeer = (beer) => {
     navigate(`/beers/id/${beer._id}`)
@@ -61,7 +64,12 @@ const Home = () => {
           searchType === 'beerType' ? (
             <main>
               {searchResults.map((result) => (
-                <BeerTypeCard key={result._id} beerType={result} />
+                <div key={result._id}>
+                  <BeerTypeCard
+                    beerType={result}
+                    showBeersByType={showBeersByType}
+                  />
+                </div>
               ))}
             </main>
           ) : (
