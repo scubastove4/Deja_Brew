@@ -1,9 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
-// import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api'
-import { Wrapper, Status } from '@googlemaps/react-wrapper'
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react-17'
 import axios from 'axios'
-
-import Map from '../components/Map'
 
 const Breweries = () => {
   const [userLocation, setUserLocation] = useState({
@@ -35,37 +32,12 @@ const Breweries = () => {
     getLocation()
   }, [])
 
-  // const center = useMemo(() => userLocation, [])
-
-  // const { isLoaded } = useLoadScript({
-  //   googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
-  // })
-
-  // if (!isLoaded) return <div>Loading...</div>
-
   // geolocation help https://youtu.be/U3dLjHN0UvM and https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
 
   // Google Maps help https://www.npmjs.com/package/@react-google-maps/api and https://youtu.be/9e-5QHpadi0
 
   return (
-    <div style={{ display: 'flex', height: '100%' }}>
-      <Wrapper apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY}>
-        <Map
-          center={userLocation}
-          zoom={14}
-          style={{ width: '50vw', height: '100%' }}
-        ></Map>
-      </Wrapper>
-    </div>
-    // <GoogleMap
-    //   zoom={10}
-    //   setCenter={center}
-    //   mapContainerClassName="map-container"
-    //   // mapContainerStyle={containerStyle}
-    //   // onLoad={Load}
-    // >
-    //   <Marker setPosition={center} />
-    // </GoogleMap>
+
   )
 }
 

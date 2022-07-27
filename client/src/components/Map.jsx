@@ -1,25 +1,21 @@
-import { useMemo, useRef, useState, useEffect } from 'react'
-// import { GoogleMap, Marker } from '@react-google-maps/api'
+// import { useMemo, useRef, useState, useEffect } from 'react'
 
-const Map = ({ userLocation }) => {
-  // const center = useMemo(() => userLocation, [])
-  const ref = useRef(null)
-  const [map, setMap] = useState()
+// const Map = ({ userLocation, center }) => {
+//   const ref = useRef(null)
+//   const [map, setMap] = useState()
 
-  useEffect(() => {
-    if (ref.current && !map) {
-      setMap(new window.google.maps.Map(ref.current, {}))
-    }
-  }, [ref, map])
+//   useEffect(() => {
+//     if (ref.current && !map) {
+//       setMap(new window.google.maps.Map(ref.current, {}))
+//     }
+//   }, [ref, map])
 
-  return (
-    <div
-      className="map-container"
-      ref={ref}
-      center={userLocation}
-      zoom="14"
-    ></div>
-  )
-}
+//   return (
+//     <div
+//       className="map-container"
+//       ref={ref}
+//     ></div>
+//   )
+// }
 
-export default Map
+// export default Map
