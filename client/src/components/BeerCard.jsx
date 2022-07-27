@@ -1,6 +1,6 @@
-const BeerCard = ({ beer }) => {
+const BeerCard = ({ beer, showBeer }) => {
   return (
-    <div>
+    <div onClick={() => showBeer(beer)}>
       <h2>{beer.beer_name}</h2>
       <img src={beer.image} alt="Beer" />
     </div>

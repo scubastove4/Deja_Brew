@@ -12,7 +12,6 @@ const BeerDetails = () => {
   const initialState = {
     beer_id: '',
     author: '',
-    brewery: '',
     rating: '',
     comment: ''
   }
@@ -24,16 +23,49 @@ const BeerDetails = () => {
         const res = await axios.get(
           `http://localhost:3001/api/beers/id/${beerId}`
         )
-        console.log(res.data)
-        // setBeerContents(res.data)
+        // console.log(res.data)
+        setBeerContents(res.data)
         setBeerContentsHere(true)
       } catch (e) {
         console.error(e)
       }
     }
-    renderBeerTypeContents()
+    renderBeerContents()
   }, [])
-  return <div></div>
+
+  const displayNewReviewForm = (beer) => {
+    formDisplay === 'none' ? setFormDisplay('flex') : setFormDisplay('none')
+    setNewReview({
+      ...newReview,
+      beer_id: beer._id
+    })
+  }
+
+  const newReviewInput = (e) => {
+    setNewReview({ ...newReview, [e.target.id]: e.target.value })
+  }
+  return (
+    <div>
+      <button onClick={() => displayNewReviewForm(beerContents.beer)}>
+        Add New Review!
+      </button>
+      {beerContentsHere ? (
+        <section>
+          <h1>{beerContents.beer.beer_name}</h1>
+          <img src={beerContents.beer.image} alt="Beer" />
+          <main>
+            {beerContents.reviews.map((review) => (
+              <div key={review._id}>
+                <ReviewCard review={review} newReviewInput={newReviewInput} />
+              </div>
+            ))}
+          </main>
+        </section>
+      ) : (
+        <h1>Please reload page</h1>
+      )}
+    </div>
+  )
 }
 
 export default BeerDetails

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 import BeerCard from '../components/BeerCard'
@@ -20,6 +20,7 @@ const BeerTypeDetails = () => {
     num_of_reviews: ''
   }
   const [newBeer, setNewBeer] = useState(initialState)
+  let navigate = useNavigate()
 
   useEffect(() => {
     const renderBeerTypeContents = async () => {
@@ -50,20 +51,15 @@ const BeerTypeDetails = () => {
     setNewBeer({ ...newBeer, [e.target.id]: e.target.value })
   }
 
+  const showBeer = (beer) => {
+    navigate(`/beers/id/${beer._id}`)
+  }
+
   const addNewBeer = async (e) => {
     e.preventDefault()
     try {
       const res = await axios.post(
         `http://localhost:3001/api/beer-types/id/${beerTypeId}`,
-        // {
-        //   image: newBeer.image,
-        //   beer_name: newBeer.beer_name,
-        //   brewery: newBeer.brewery,
-        //   beer_type_id: newBeer.beer_type_id,
-        //   beer_type_name: newBeer.beer_type_name,
-        //   avg_rating: newBeer.avg_rating,
-        //   num_of_reviews: newBeer.num_of_reviews
-        // }
         newBeer
       )
       console.log(res)
@@ -92,7 +88,7 @@ const BeerTypeDetails = () => {
           <main>
             {beerTypeContents.beers.map((beer) => (
               <div key={beer._id}>
-                <BeerCard beer={beer} />
+                <BeerCard beer={beer} showBeer={showBeer} />
               </div>
             ))}
           </main>
