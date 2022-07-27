@@ -1,29 +1,38 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 const ReviewDetails = () => {
   const [reviewContents, setReviewContents] = useState({})
-  const { reviewId } = useParams()
   const [updateReview, setUpdateReview] = useState({
-    rating: reviewContents.rating,
-    comment: reviewContents.comment
+    rating: '',
+    comment: ''
   })
+  const [beerId, setBeerId] = useState(reviewContents.beer_id)
+  const { reviewId } = useParams()
+
+  let navigate = useNavigate()
 
   useEffect(() => {
     const getReview = async () => {
       const res = await axios.get(
         `http://localhost:3001/api/beers/review/${reviewId}`
       )
-      // console.log(res.data.review)
       setReviewContents(res.data.review)
     }
     getReview()
   }, [])
 
+  useEffect(() => {
+    setBeerId(reviewContents.beer_id)
+    setUpdateReview({
+      rating: reviewContents.rating,
+      comment: reviewContents.comment
+    })
+  }, [reviewContents])
+
   const updateInputValue = (e) => {
-    e.target.value &&
-      setUpdateReview({ ...updateReview, [e.target.id]: e.target.value })
+    setUpdateReview({ ...updateReview, [e.target.id]: e.target.value })
   }
 
   const putReview = async (e) => {
@@ -43,6 +52,10 @@ const ReviewDetails = () => {
     console.log(res)
   }
 
+  const goBack = () => {
+    navigate(`/beers/id/${beerId}`)
+  }
+
   return (
     <div>
       <h2>{reviewContents.author}</h2>
@@ -51,7 +64,6 @@ const ReviewDetails = () => {
           id="rating"
           value={updateReview.rating}
           onInput={updateInputValue}
-          placeholder={reviewContents.rating}
           minLength="0"
           maxLength="4"
         />
@@ -59,12 +71,13 @@ const ReviewDetails = () => {
           id="comment"
           value={updateReview.comment}
           onInput={updateInputValue}
-          placeholder={reviewContents.comment}
           maxLength="100"
           minLength="0"
         ></textarea>
         <button type="submit">Update Review</button>
       </form>
+      <button onClick={deleteReview}>Delete Review</button>
+      <button onClick={goBack}>Return to Beer</button>
     </div>
   )
 }
