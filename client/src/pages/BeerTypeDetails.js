@@ -55,6 +55,15 @@ const BeerTypeDetails = () => {
     try {
       const res = await axios.post(
         `http://localhost:3001/api/beer-types/id/${beerTypeId}`,
+        // {
+        //   image: newBeer.image,
+        //   beer_name: newBeer.beer_name,
+        //   brewery: newBeer.brewery,
+        //   beer_type_id: newBeer.beer_type_id,
+        //   beer_type_name: newBeer.beer_type_name,
+        //   avg_rating: newBeer.avg_rating,
+        //   num_of_reviews: newBeer.num_of_reviews
+        // }
         newBeer
       )
       console.log(res)

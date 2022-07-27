@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 })
 
 /////////////////////////////////////////////////
-router.post('/beer-types/:beerTypeId', beersControllers.createBeer)
+router.post('/beer-types/id/:beerTypeId', beersControllers.createBeer)
 
 router.get('/beer-types', beerTypesControllers.getAllBeerTypes)
 router.get(

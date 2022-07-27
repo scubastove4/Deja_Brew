@@ -1,7 +1,9 @@
 const { Beer, Review } = require('../models')
 
 const createBeer = async (req, res) => {
+  // const { beerTypeId } = await req.params
   try {
+    // const newBeer = { ...req.body, beer_type_id: beerTypeId }
     const newBeer = await new Beer(req.body)
     await newBeer.save()
     return res.status(201).json({ newBeer })

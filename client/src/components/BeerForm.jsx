@@ -7,7 +7,7 @@ const BeerForm = ({ newBeer, newBeerInput, addNewBeer }) => {
           type="text"
           value={newBeer.image}
           onInput={newBeerInput}
-          placeholder="Upload Image"
+          placeholder="Upload Image Link"
         />
         <input
           id="beer_name"
