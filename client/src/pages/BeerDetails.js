@@ -74,14 +74,22 @@ const BeerDetails = () => {
 
   const getAvgRating = () => {
     const ratingArr = []
-    beerContents.reviews.forEach((review) =>
-      ratingArr.push(Number(review.rating))
-    )
+    let avgRating
+    beerContents.reviews
+      ? beerContents.reviews.forEach((review) =>
+          ratingArr.push(Number(review.rating))
+        )
+      : (avgRating = '')
+
     const ratingSum = ratingArr.reduce(
       (accumulator, value) => accumulator + value,
       0
     )
-    return Math.round((ratingSum / beerContents.reviews.length) * 100) / 100
+    beerContents.reviews
+      ? (avgRating =
+          Math.round((ratingSum / beerContents.reviews.length) * 100) / 100)
+      : (avgRating = '')
+    return avgRating
   }
 
   const avgRating = getAvgRating()
@@ -104,7 +112,11 @@ const BeerDetails = () => {
           <h1>{beerContents.beer.beer_name}</h1>
           <img src={beerContents.beer.image} alt="Beer" />
           <h2>Number of Reviews: {beerContents.reviews.length}</h2>
-          <h2>Average Rating: {avgRating}</h2>
+          {avgRating ? (
+            <h2>Average Rating: {avgRating}</h2>
+          ) : (
+            <h2>Be the first to review and rate this beer!</h2>
+          )}
           <main>
             {beerContents.reviews.map((review) => (
               <div key={review._id}>

@@ -15,7 +15,7 @@ const createBeer = async (req, res) => {
 const getRandomBeer = async (req, res) => {
   try {
     const beers = await Beer.find()
-    let random = Math.ceil(Math.random() * (beers.length - 1))
+    let random = Math.floor(Math.random() * beers.length)
     let randomBeer = beers[random]
     const reviews = await Review.find({ beer_id: randomBeer._id })
     return res.status(200).json({ randomBeer, reviews })

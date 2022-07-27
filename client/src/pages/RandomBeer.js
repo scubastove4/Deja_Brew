@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 import ReviewCard from '../components/ReviewCard'
@@ -6,6 +7,7 @@ import ReviewCard from '../components/ReviewCard'
 const RandomBeer = () => {
   const [randomBeer, setRandomBeer] = useState({})
   const [beerPicked, setBeerPicked] = useState(false)
+  let navigate = useNavigate()
 
   useEffect(() => {
     const renderRandomBeer = async () => {
@@ -25,22 +27,46 @@ const RandomBeer = () => {
     beerPicked && setBeerPicked(false)
   }
 
+  const getAvgRating = () => {
+    const ratingArr = []
+    let avgRating
+    randomBeer.reviews
+      ? randomBeer.reviews.forEach((review) =>
+          ratingArr.push(Number(review.rating))
+        )
+      : (avgRating = '')
+
+    const ratingSum = ratingArr.reduce(
+      (accumulator, value) => accumulator + value,
+      0
+    )
+    randomBeer.reviews
+      ? (avgRating =
+          Math.round((ratingSum / randomBeer.reviews.length) * 100) / 100)
+      : (avgRating = '')
+    return avgRating
+  }
+
+  const avgRating = getAvgRating()
+
+  const showBeer = () => {
+    navigate(`/beers/id/${randomBeer.randomBeer._id}`)
+  }
+
   return (
     <div>
       {beerPicked ? (
-        <main>
+        <main onClick={showBeer}>
           <h2>{randomBeer.randomBeer.beer_name}</h2>
           <img src={randomBeer.randomBeer.image} alt="Beer" />
-          <div>
-            {randomBeer.reviews.map((review) => (
-              <div key={review._id}>
-                <ReviewCard review={review} />
-              </div>
-            ))}
-          </div>
+          {avgRating ? (
+            <h2>Average Rating: {avgRating}</h2>
+          ) : (
+            <h2>Average Rating Pending</h2>
+          )}
         </main>
       ) : (
-        <h1>Try hitting the button below'</h1>
+        <h1>Try hitting the button below!</h1>
       )}
       <button onClick={randomOnClick}>Get New Beer!</button>
     </div>
