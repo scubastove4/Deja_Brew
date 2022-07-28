@@ -16,6 +16,41 @@ body {
   background-repeat: round;
 }
 
+#root {
+  min-height: 100vh;
+  max-height: max-content;
+}
+
+.App,
+#routeMain {
+  height: 100%;
+  width: 100%;
+}
+
+/* #routeMain {
+  display: flex;
+  justify-content: center;
+} */
+
+button {
+  background-color: #55a630;
+  box-shadow: 2px 2px 4px 0px #2b9348, -2px -2px 2px 0px #80b918;
+  color: #081c15;
+  border: none;
+  height: max-content;
+  width: max-content;
+  border-radius: 5px;
+  text-align: center;
+}
+
+button:hover {
+  box-shadow: 3px 3px 4px 0px #2b9348 inset, -3px -3px 2px 0px #80b918 inset;
+}
+
+button:active {
+  box-shadow: 4px 4px 4px 0px #2b9348 inset, -4px -4px 2px 0px #80b918 inset;
+}
+
 img {
   border-radius: 5px;
 }
@@ -133,10 +168,11 @@ a:last-child:hover {
   background-color: #081c15;
   color: #edf2f4;
   padding: 1% 2%;
+  box-shadow: 2px 2px 5px #081c15, -2px -2px 5px #edf2f4;
 }
 
 #searchButton:hover {
-  box-shadow: 2px 2px 5px #081c15, -2px -2px 5px #edf2f4;
+  box-shadow: 3px 3px 5px #081c15, -3px -3px 5px #edf2f4;
 }
 
 #searchButton:active {
@@ -165,6 +201,11 @@ a:last-child:hover {
   background: linear-gradient(to right top, #2b9348, #55a630, #80b918);
   box-shadow: 4px 4px 4px #2b9348, -1px -1px 2px 0 #ffd49f;
   text-align: center;
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 5px 5px 4px #2b9348, -2px -2px 2px 0 #ffd49f;
 }
 
 img {
@@ -211,24 +252,9 @@ img {
 }
 
 #randomBeerPage button {
-  background-color: #55a630;
-  box-shadow: 2px 2px 4px 0px #2b9348 inset, -2px -2px 2px 0px #80b918 inset;
-  color: #081c15;
-  border: none;
   font-size: 1.15em;
-  height: max-content;
-  width: max-content;
-  border-radius: 5px;
   padding: 1% 2%;
   margin-top: 1%;
-}
-
-#randomBeerPage button:hover {
-  box-shadow: 3px 3px 4px 0px #2b9348 inset, -3px -3px 2px 0px #80b918 inset;
-}
-
-#randomBeerPage button:active {
-  box-shadow: 4px 4px 4px 0px #2b9348 inset, -4px -4px 2px 0px #80b918 inset;
 }
 
 /*////////////////////////  Random Beer page above  /////////////////////////// */
@@ -252,24 +278,16 @@ img {
 #beerTypeContentsPage {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   height: 100%;
 }
 
 #beerTypeContentsPage button {
-  background-color: #55a630;
-  box-shadow: 2px 2px 4px 0px #2b9348 inset, -2px -2px 2px 0px #80b918 inset;
-  color: #081c15;
-  border: none;
   font-size: 1em;
-  height: max-content;
-  width: max-content;
-  border-radius: 5px;
   padding: 1% 2%;
   margin: 1% 0 1% 0;
-  text-align: center;
 }
 
 /*/////////////  */
@@ -312,7 +330,7 @@ form input {
 #beerTypeContentsContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   width: 98vw;
@@ -329,7 +347,7 @@ form input {
 }
 
 .beerTypeContentsCard {
-  height: 20%;
+  height: max-content;
   width: 20%;
 }
 /* Beer Type contents & Beer Card above   */
@@ -337,26 +355,77 @@ form input {
 /*////////////////////////  Beer Type Details page above  //////////////////// */
 
 #beerDetailsPage {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; */
+
+  height: 100%;
+  /* width: 98vw; */
+}
+
+#beerDetailsContainer {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 
   height: 100%;
 }
-/* //////////// */
-#beerDetailsPage button {
-  background-color: #55a630;
-  box-shadow: 2px 2px 4px 0px #2b9348 inset, -2px -2px 2px 0px #80b918 inset;
-  color: #081c15;
-  border: none;
-  font-size: 1em;
+
+/* ////////////// */
+
+#beerNameAndRating {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin: 9% 2% 0 0;
+  text-align: center;
+  height: 100%;
+  /* width: max-content; */
+}
+
+#beerNameAndRating h1 {
+  border-bottom: 2px solid #081c15;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 3%;
+  font-size: 1.75em;
+}
+
+#beerNameAndRating h2 {
+  border-bottom: 2px solid #081c15;
+  width: 70%;
+  text-align: center;
+  margin-bottom: 2%;
+}
+/* Beer Name/Rating above */
+
+#beerDetailsImg {
+  height: 100%;
+  max-height: 23em;
+  width: 20%;
+  margin: 3% 2% 0 2%;
+}
+
+/* Beer Details Img above */
+
+#beerReviews {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 33%;
   height: max-content;
-  width: max-content;
-  border-radius: 5px;
+  margin: 1% 0 2% 0;
+}
+
+#beerReviews button {
+  font-size: 1em;
   padding: 1% 2%;
   margin: 1% 0 1% 0;
-  text-align: center;
 }
 
 #reviewForm {
@@ -364,57 +433,42 @@ form input {
   height: max-content;
 }
 
-form textarea {
+#reviewForm textarea {
   margin: 1% 0 0 0;
   height: 7em;
-  width: 20%;
+  width: 70%;
   border-radius: 5px;
   border: none;
-  padding-left: 1%;
+  padding: 1% 0 0 2%;
   font-size: 1.15em;
   background-color: #55a630;
   box-shadow: 2px 2px 4px 0px #2b9348 inset, -2px -2px 2px 0px #80b918 inset;
   color: #edf2f4;
 }
 
-/*//////// Review Form above */
-
-#beerDetailsContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  width: 98vw;
+#reviewForm button {
+  margin-bottom: 2%;
 }
 
-#beerDetailsContainer img {
-  height: 20%;
-  width: 20%;
-}
-
-#beerDetailsContainer h2 {
-  border-bottom: 2px solid #081c15;
-  width: 20%;
-  text-align: center;
-}
-/*////// Beer contents above */
-
-#beerDetailsContainer main {
+#reviewCardContainer {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-end;
 
   width: 100%;
-  margin: 1% 0 2% 0;
+  height: 20em;
+  overflow: scroll;
+  padding: 0 3%;
 }
+
+/*//////// Review Form above */
 
 .reviewCard {
   height: max-content;
-  width: 20%;
-  margin: 0 1% 0 0;
+  width: 45%;
+  /* margin: 0 0.5% 0 0; */
   padding: 0.5% 1%;
 }
 
@@ -423,7 +477,53 @@ form textarea {
 }
 /* /// Review Card above */
 /*/ ///////////////////////  Beer Details page above  //////////////////// */
-.map-container {
-  height: 100vh;
-  width: 100%;
+
+#reviewDetailsPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  height: 100%;
 }
+
+#reviewDetailsPage h2 {
+  margin: 0.3% 0 0.3% 0;
+  font-size: 2em;
+}
+
+#reviewForm {
+  justify-content: flex-start;
+
+  height: max-content;
+}
+
+#rating,
+#comment {
+  margin: 0 0 1% 0;
+}
+
+#comment {
+  word-wrap: break-word;
+}
+
+#reviewForm button,
+#reviewDetailsPage section button {
+  font-size: 1em;
+  padding: 0.5% 1%;
+}
+
+#reviewDetailsPage section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 100%;
+  margin: 1% 0 0 0;
+}
+
+/*/ ///////////////////////  Review Details page above  //////////////////// */
+/* .mapContainer {
+  height: 80%;
+  width: 80%;
+} */

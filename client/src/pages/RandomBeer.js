@@ -56,7 +56,7 @@ const RandomBeer = () => {
   return (
     <div id="randomBeerPage">
       {beerPicked ? (
-        <main onClick={showBeer} className="randomBeerContainer">
+        <main onClick={showBeer} className="card randomBeerContainer">
           <h2 id="randomBeerName">{randomBeer.randomBeer.beer_name}</h2>
           <img
             src={randomBeer.randomBeer.image}

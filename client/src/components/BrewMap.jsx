@@ -1,9 +1,13 @@
 import { useState } from 'react'
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react-17'
 
-import mapStyles from '../mapStyles'
-
 const googlMapApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+
+const mapStyles = {
+  margin: '0, auto',
+  height: '80%',
+  width: '80%'
+}
 
 const BrewMap = ({ userLocation, google, nearbyBreweries }) => {
   return (
@@ -22,7 +26,8 @@ const BrewMap = ({ userLocation, google, nearbyBreweries }) => {
                 scaledSize: new window.google.maps.Size(40, 40)
               }}
               optimized={true}
-              mapId={'ece9434bcbd0793d'}
+              // mapId={'ece9434bcbd0793d'}
+              style={mapStyles}
             />
           ))}
         </Map>

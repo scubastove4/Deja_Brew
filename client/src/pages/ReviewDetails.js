@@ -57,9 +57,9 @@ const ReviewDetails = () => {
   }
 
   return (
-    <div>
+    <div id="reviewDetailsPage">
       <h2>{reviewContents.author}</h2>
-      <form onSubmit={putReview}>
+      <form onSubmit={putReview} id="reviewForm">
         <input
           id="rating"
           value={updateReview.rating}
@@ -76,8 +76,10 @@ const ReviewDetails = () => {
         ></textarea>
         <button type="submit">Update Review</button>
       </form>
-      <button onClick={deleteReview}>Delete Review</button>
-      <button onClick={goBack}>Return to Beer</button>
+      <section>
+        <button onClick={deleteReview}>Delete Review</button>
+        <button onClick={goBack}>Return to Beer</button>
+      </section>
     </div>
   )
 }

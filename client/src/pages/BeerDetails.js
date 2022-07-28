@@ -11,7 +11,7 @@ const BeerDetails = () => {
   const [formDisplay, setFormDisplay] = useState('none')
   const { beerId } = useParams()
   const initialState = {
-    beer_id: '',
+    beer_id: beerId,
     author: '',
     rating: '',
     comment: ''
@@ -35,12 +35,8 @@ const BeerDetails = () => {
     renderBeerContents()
   }, [newReview])
 
-  const displayNewReviewForm = (beer) => {
+  const displayNewReviewForm = () => {
     formDisplay === 'none' ? setFormDisplay('flex') : setFormDisplay('none')
-    setNewReview({
-      ...newReview,
-      beer_id: beer._id
-    })
   }
 
   const newReviewInput = (e) => {
@@ -89,35 +85,37 @@ const BeerDetails = () => {
 
   return (
     <div id="beerDetailsPage">
-      <button onClick={() => displayNewReviewForm(beerContents.beer)}>
-        Add New Review!
-      </button>
-      <div style={{ display: `${formDisplay}` }} id="reviewForm">
-        <ReviewForm
-          beer={beerContents.beer}
-          newReview={newReview}
-          newReviewInput={newReviewInput}
-          addNewReview={addNewReview}
-        />
-      </div>
       {beerContentsHere ? (
-        <section id="beerDetailsContainer">
-          <h1>{beerContents.beer.beer_name}</h1>
-          <img src={beerContents.beer.image} alt="Beer" />
-          <h2>Number of Reviews: {beerContents.reviews.length}</h2>
-          {avgRating ? (
-            <h2>Average Rating: {avgRating}</h2>
-          ) : (
-            <h2>Be the first to review and rate this beer!</h2>
-          )}
-          <main>
-            {beerContents.reviews.map((review) => (
-              <div key={review._id} className="card reviewCard">
-                <ReviewCard review={review} updateReview={updateReview} />
-              </div>
-            ))}
-          </main>
-        </section>
+        <main id="beerDetailsContainer">
+          <div id="beerNameAndRating">
+            <h1>{beerContents.beer.beer_name}</h1>
+            <h2>Number of Reviews: {beerContents.reviews.length}</h2>
+            {avgRating ? (
+              <h2>Average Rating: {avgRating}</h2>
+            ) : (
+              <h2>Be the first to review and rate this beer!</h2>
+            )}
+          </div>
+          <img id="beerDetailsImg" src={beerContents.beer.image} alt="Beer" />
+          <section id="beerReviews">
+            <button onClick={displayNewReviewForm}>Add New Review!</button>
+            <div style={{ display: `${formDisplay}` }} id="reviewForm">
+              <ReviewForm
+                beer={beerContents.beer}
+                newReview={newReview}
+                newReviewInput={newReviewInput}
+                addNewReview={addNewReview}
+              />
+            </div>
+            <section id="reviewCardContainer">
+              {beerContents.reviews.map((review) => (
+                <div key={review._id} className="card reviewCard">
+                  <ReviewCard review={review} updateReview={updateReview} />
+                </div>
+              ))}
+            </section>
+          </section>
+        </main>
       ) : (
         <h1>Please reload page</h1>
       )}
