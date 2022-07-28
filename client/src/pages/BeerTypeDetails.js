@@ -10,15 +10,15 @@ const BeerTypeDetails = () => {
   const [beerTypContentsHere, setBeerTypeContentsHere] = useState(false)
   const [formDisplay, setFormDisplay] = useState('none')
   const { beerTypeId } = useParams()
-  const initialState = {
+  const [initialState, setInitialState] = useState({
     image: '',
     beer_name: '',
     brewery: '',
     beer_type_id: beerTypeId,
-    beer_type_name: beerTypeContents.beerType.style_name,
+    beer_type_name: '',
     avg_rating: '',
     num_of_reviews: ''
-  }
+  })
   const [newBeer, setNewBeer] = useState(initialState)
   let navigate = useNavigate()
 
@@ -28,7 +28,6 @@ const BeerTypeDetails = () => {
         const res = await axios.get(
           `http://localhost:3001/api/beer-types/id/${beerTypeId}`
         )
-        // console.log(res.data)
         setBeerTypeContents(res.data)
         setBeerTypeContentsHere(true)
       } catch (e) {
@@ -38,8 +37,12 @@ const BeerTypeDetails = () => {
     renderBeerTypeContents()
   }, [newBeer])
 
-  const displayNewBeerForm = (beerType) => {
+  const displayNewBeerForm = () => {
     formDisplay === 'none' ? setFormDisplay('block') : setFormDisplay('none')
+    setInitialState({
+      ...initialState,
+      beer_type_name: beerTypeContents.beerType.style_name
+    })
   }
 
   const newBeerInput = (e) => {
@@ -86,7 +89,11 @@ const BeerTypeDetails = () => {
           <main>
             {beerTypeContents.beers.map((beer) => (
               <div key={beer._id} className="card beerTypeContentsCard">
-                <BeerCard beer={beer} showBeer={showBeer} />
+                <BeerCard
+                  beer={beer}
+                  showBeer={showBeer}
+                  beerTypeContents={beerTypeContents}
+                />
               </div>
             ))}
           </main>
