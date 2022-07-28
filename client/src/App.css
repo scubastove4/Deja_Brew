@@ -9,10 +9,16 @@
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
+  max-height: max-content;
   width: 100vw;
   background: linear-gradient(to left bottom, #2b9348, #55a630, #80b918);
+  background-repeat: round;
 }
+
+/* .App {
+  overflow: scroll;
+} */
 
 nav {
   display: flex;
@@ -22,6 +28,7 @@ nav {
   height: max-content;
   padding: 0.5% 0;
   background-color: #081c15;
+  /* position: sticky; */
 }
 
 #title {
@@ -44,6 +51,7 @@ a {
   border-right: 2px solid #edf2f4;
   padding: 0.5% 1% 0.5% 01%;
   border-radius: 5px 0 0 5px;
+  position: inherit;
 }
 
 a:last-child {
@@ -153,6 +161,7 @@ a:last-child:hover {
   border-radius: 10px;
   background: linear-gradient(to right top, #2b9348, #55a630, #80b918);
   box-shadow: 4px 4px 4px #2b9348, -1px -1px 2px 0 #ffd49f;
+  text-align: center;
 }
 
 img {
@@ -220,6 +229,22 @@ img {
 }
 
 /*////////////////////////  Random Beer page above  /////////////////////////// */
+
+#beerTypesDiv {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to left bottom, #2b9348, #55a630, #80b918);
+}
+
+#beerTypesMain {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/*////////////////////////  Beer Types page above  /////////////////////////// */
 .map-container {
   height: 100vh;
   width: 100%;

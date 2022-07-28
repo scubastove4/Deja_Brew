@@ -28,11 +28,11 @@ const BeerTypes = () => {
   }
 
   return (
-    <div>
+    <div id="beerTypesDiv">
       {beerTypesHere ? (
-        <main>
+        <main id="beerTypesMain">
           {beerTypes.map((beerType) => (
-            <div key={beerType._id}>
+            <div key={beerType._id} className="card">
               <BeerTypeCard
                 beerType={beerType}
                 showBeersByType={showBeersByType}
