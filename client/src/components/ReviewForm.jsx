@@ -1,7 +1,7 @@
 const ReviewForm = ({ newReview, newReviewInput, addNewReview }) => {
   return (
-    <div>
-      <form onSubmit={(e) => addNewReview(e)}>
+    <form onSubmit={(e) => addNewReview(e)}>
+      <section>
         <input
           id="author"
           type="text"
@@ -16,15 +16,15 @@ const ReviewForm = ({ newReview, newReviewInput, addNewReview }) => {
           onInput={newReviewInput}
           placeholder="Rating 0-5"
         />
-        <textarea
-          id="comment"
-          value={newReview.comment}
-          onInput={newReviewInput}
-          placeholder="Add a comment!"
-        ></textarea>
-        <button type="submit">Create Review!</button>
-      </form>
-    </div>
+      </section>
+      <textarea
+        id="comment"
+        value={newReview.comment}
+        onInput={newReviewInput}
+        placeholder="Add a comment!"
+      ></textarea>
+      <button type="submit">Create Review!</button>
+    </form>
   )
 }
 

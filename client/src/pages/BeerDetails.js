@@ -88,11 +88,11 @@ const BeerDetails = () => {
   const avgRating = getAvgRating()
 
   return (
-    <div>
+    <div id="beerDetailsPage">
       <button onClick={() => displayNewReviewForm(beerContents.beer)}>
         Add New Review!
       </button>
-      <div style={{ display: `${formDisplay}` }}>
+      <div style={{ display: `${formDisplay}` }} id="reviewForm">
         <ReviewForm
           beer={beerContents.beer}
           newReview={newReview}
@@ -101,7 +101,7 @@ const BeerDetails = () => {
         />
       </div>
       {beerContentsHere ? (
-        <section>
+        <section id="beerDetailsContainer">
           <h1>{beerContents.beer.beer_name}</h1>
           <img src={beerContents.beer.image} alt="Beer" />
           <h2>Number of Reviews: {beerContents.reviews.length}</h2>
@@ -112,7 +112,7 @@ const BeerDetails = () => {
           )}
           <main>
             {beerContents.reviews.map((review) => (
-              <div key={review._id}>
+              <div key={review._id} className="card reviewCard">
                 <ReviewCard review={review} updateReview={updateReview} />
               </div>
             ))}
