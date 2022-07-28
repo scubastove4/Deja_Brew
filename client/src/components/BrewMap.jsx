@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react-17'
 
-const googlMapApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+const googleMapApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
 
 const mapStyles = {
   margin: '5%',
@@ -39,5 +39,5 @@ const BrewMap = ({ userLocation, google, nearbyBreweries }) => {
 //https://youtu.be/Pf7g32CwX_s
 
 export default GoogleApiWrapper({
-  apiKey: googlMapApiKey
+  apiKey: googleMapApiKey
 })(BrewMap)
