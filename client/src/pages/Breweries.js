@@ -1,21 +1,23 @@
-import { set } from 'mongoose'
-import { useState, useEffect } from 'react'
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api'
+import { useState, useEffect, useMemo } from 'react'
+import axios from 'axios'
+
+import BrewMap from '../components/BrewMap'
 
 const Breweries = () => {
   const [userLocation, setUserLocation] = useState({
     lat: '',
     lng: ''
   })
-  const [error, setError] = useState('')
-  let map
+  const [nearbyBreweries, setNearbyBreweries] = useState({})
+  const [breweriesHere, setBreweriesHere] = useState(false)
+  // const [error, setError] = useState('')
 
   useEffect(() => {
     const getUserLocation = async (position) => {
       await setUserLocation({
         ...userLocation,
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
+        lat: Number(position.coords.latitude),
+        lng: Number(position.coords.longitude)
       })
       console.log(position)
     }
@@ -23,27 +25,46 @@ const Breweries = () => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(getUserLocation, (error) => {
           console.error(`Error = ${error.code}: ${error.message}`)
-          setError(error.message)
+          // setError(error.message)
         })
       } else {
         console.log('Not available')
       }
     }
+
     getLocation()
   }, [])
 
-  const center = userLocation
+  useEffect(() => {
+    const getNearbyBreweries = async () => {
+      try {
+        const res = await axios.get(
+          `https://api.openbrewerydb.org/breweries?by_dist=${userLocation.lat},${userLocation.lng}&per_page=10`
+        )
+        // console.log(res.data)
+        setNearbyBreweries(res.data)
+        setBreweriesHere(true)
+      } catch (e) {
+        console.error(e)
+      }
+    }
+    getNearbyBreweries()
+  }, [userLocation])
 
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY
-  })
+  // geolocation help https://youtu.be/U3dLjHN0UvM and https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
 
-  // geolocation help https://youtu.be/U3dLjHN0UvM and https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs and https://www.npmjs.com/package/@react-google-maps/api
+  // Google Maps help https://www.npmjs.com/package/@react-google-maps/api and https://youtu.be/9e-5QHpadi0
 
   return (
     <div>
-      <div id="map"></div>
+      {breweriesHere && userLocation ? (
+        <BrewMap
+          userLocation={userLocation}
+          nearbyBreweries={nearbyBreweries}
+        />
+      ) : (
+        <h1>Loading Brewery Map</h1>
+      )}
     </div>
   )
 }
