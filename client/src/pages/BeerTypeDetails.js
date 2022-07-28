@@ -39,7 +39,7 @@ const BeerTypeDetails = () => {
   }, [newBeer])
 
   const displayNewBeerForm = (beerType) => {
-    formDisplay === 'none' ? setFormDisplay('flex') : setFormDisplay('none')
+    formDisplay === 'none' ? setFormDisplay('block') : setFormDisplay('none')
     setNewBeer({
       ...newBeer,
       beer_type_id: beerType._id,
@@ -70,11 +70,19 @@ const BeerTypeDetails = () => {
   }
 
   return (
-    <div>
+    <div id="beerTypeContentsPage">
       <button onClick={() => displayNewBeerForm(beerTypeContents.beerType)}>
         Add New Beer!
       </button>
-      <div style={{ display: `${formDisplay}` }}>
+      <div
+        id="beerForm"
+        style={{
+          display: `${formDisplay}`
+          // flexDirection: 'column',
+          // justifyContent: 'center',
+          // alignItems: 'center'
+        }}
+      >
         <BeerForm
           beerType={beerTypeContents.beerType}
           newBeer={newBeer}
@@ -83,11 +91,11 @@ const BeerTypeDetails = () => {
         />
       </div>
       {beerTypContentsHere ? (
-        <section>
+        <section id="beerTypeContentsContainer">
           <h1>{beerTypeContents.beerType.style_name}</h1>
           <main>
             {beerTypeContents.beers.map((beer) => (
-              <div key={beer._id}>
+              <div key={beer._id} className="card beerTypeContentsCard">
                 <BeerCard beer={beer} showBeer={showBeer} />
               </div>
             ))}

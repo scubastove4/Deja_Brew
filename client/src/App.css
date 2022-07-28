@@ -94,7 +94,6 @@ a:last-child:hover {
   border-radius: 5px;
   border: none;
   margin: 0 3% 0 0;
-  /* text-align: center; */
   padding-left: 2%;
   font-size: 1.15em;
   background-color: #55a630;
@@ -245,6 +244,87 @@ img {
 }
 
 /*////////////////////////  Beer Types page above  /////////////////////////// */
+
+#beerTypeContentsPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#beerTypeContentsPage button {
+  background-color: #55a630;
+  box-shadow: 2px 2px 4px 0px #2b9348 inset, -2px -2px 2px 0px #80b918 inset;
+  color: #081c15;
+  border: none;
+  font-size: 1em;
+  height: max-content;
+  width: max-content;
+  border-radius: 5px;
+  padding: 1% 2%;
+  margin: 1% 0 1% 0;
+  text-align: center;
+}
+
+/*/////////////  */
+#beerForm,
+form {
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}
+
+form input {
+  height: 2em;
+  width: 11em;
+  border-radius: 5px;
+  border: none;
+  margin: 0 1% 0 0;
+  padding-left: 1%;
+  font-size: 1.15em;
+  background-color: #55a630;
+  box-shadow: 2px 2px 4px 0px #2b9348 inset, -2px -2px 2px 0px #80b918 inset;
+  color: #edf2f4;
+}
+
+/* ////////New Beer Form above */
+
+#beerTypeContentsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#beerTypeContentsContainer main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.beerTypeContentsCard {
+  height: 40%;
+  width: 40%;
+}
+/* Beer Type contents & Beer Card above   */
+
+/*////////////////////////  Beer Type Contents page above  //////////////////// */
 .map-container {
   height: 100vh;
   width: 100%;

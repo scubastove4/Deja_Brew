@@ -1,7 +1,7 @@
 const BeerForm = ({ newBeer, newBeerInput, addNewBeer }) => {
   return (
-    <div>
-      <form onSubmit={(e) => addNewBeer(e)}>
+    <form onSubmit={(e) => addNewBeer(e)}>
+      <section>
         <input
           id="image"
           type="text"
@@ -23,9 +23,9 @@ const BeerForm = ({ newBeer, newBeerInput, addNewBeer }) => {
           onInput={newBeerInput}
           placeholder="Brewery Name"
         />
-        <button type="submit">Create Beer Entry</button>
-      </form>
-    </div>
+      </section>
+      <button type="submit">Post Beer</button>
+    </form>
   )
 }
 
