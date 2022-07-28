@@ -103,7 +103,7 @@ const main = async () => {
       image:
         'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcraftpeak-cooler-images.imgix.net%2Fevil-twin-brewing-nyc%2FDSC01163.jpg%3Fauto%3Dcompress%252Cformat%26fit%3Dscale%26h%3D768%26ixlib%3Dphp-1.2.1%26w%3D768%26wpsize%3Dmedium_large&f=1&nofb=1',
       beer_name:
-        'WHO ELSE IS EXCITED ABOUT THE VIRUAL VIEWING OF THE ROCKEFELLER CHRISTMAS TREE THIS YEAR?',
+        "WHO ELSE IS EXCITED ABOUT THIS YEAR'S VIRTUAL VIEWING OF THE ROCKEFELLER CENTER CHRISTMAS TREE?",
       brewery: 'Evil Twin Brewing NYC',
       beer_type_id: hipa[0]._id,
       beer_type_name: hipa[0].style_name,
