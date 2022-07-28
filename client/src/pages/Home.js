@@ -50,7 +50,7 @@ const Home = () => {
   }
 
   return (
-    <div>
+    <div className="home">
       <SearchBar
         newSearchQuery={newSearchQuery}
         changeSearchType={changeSearchType}
@@ -63,9 +63,9 @@ const Home = () => {
         {searched ? (
           searchResults.length > 0 ? (
             searchType === 'beerType' ? (
-              <main>
+              <main className="cardContainer">
                 {searchResults.map((result) => (
-                  <div key={result._id}>
+                  <div key={result._id} className="card">
                     <BeerTypeCard
                       beerType={result}
                       showBeersByType={showBeersByType}
@@ -74,9 +74,9 @@ const Home = () => {
                 ))}
               </main>
             ) : (
-              <main>
+              <main className="cardContainer">
                 {searchResults.map((result) => (
-                  <div key={result._id}>
+                  <div key={result._id} className="card">
                     <BeerCard beer={result} showBeer={showBeer} />
                   </div>
                 ))}
