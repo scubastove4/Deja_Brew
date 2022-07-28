@@ -1,9 +1,7 @@
-const { Beer, Review } = require('../models')
+const { Beer, Review, BeerType } = require('../models')
 
 const createBeer = async (req, res) => {
-  // const { beerTypeId } = await req.params
   try {
-    // const newBeer = { ...req.body, beer_type_id: beerTypeId }
     const newBeer = await new Beer(req.body)
     await newBeer.save()
     return res.status(201).json({ newBeer })
@@ -35,22 +33,14 @@ const getBeersByName = async (req, res) => {
     return res.status(500).send(e.message)
   }
 }
-// const getBeersByType = async (req, res) => {
-//   try {
-//     const { beerTypeId } = req.params
-//     const beersByType = await Beer.find({ beer_type_id: beerTypeId })
-//     return res.status(200).json({ beersByType })
-//   } catch (e) {
-//     return res.status(500).send(e.message)
-//   }
-// }
 
 const getBeerContents = async (req, res) => {
   try {
     const { beerId } = await req.params
     const beer = await Beer.findById(beerId)
     const reviews = await Review.find({ beer_id: beerId })
-    return res.status(200).json({ beer, reviews })
+    const beerType = await BeerType.find({ _id: beer.beer_type_id })
+    return res.status(200).json({ beer, reviews, beerType })
   } catch (e) {
     return res.status(500).send(e.message)
   }
@@ -92,5 +82,4 @@ module.exports = {
   getBeersByName,
   updateBeer,
   deleteBeer
-  // getBeersByType,
 }

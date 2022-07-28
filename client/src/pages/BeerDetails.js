@@ -25,7 +25,6 @@ const BeerDetails = () => {
         const res = await axios.get(
           `http://localhost:3001/api/beers/id/${beerId}`
         )
-        // console.log(res.data)
         setBeerContents(res.data)
         setBeerContentsHere(true)
       } catch (e) {
@@ -96,7 +95,19 @@ const BeerDetails = () => {
               <h2>Be the first to review and rate this beer!</h2>
             )}
           </div>
-          <img id="beerDetailsImg" src={beerContents.beer.image} alt="Beer" />
+          {beerContents.beer.image ? (
+            <img
+              className="beerDetailsImg"
+              src={beerContents.beer.image}
+              alt="Beer"
+            />
+          ) : (
+            <img
+              className="beerDetailsImg"
+              src={beerContents.beerType[0].image}
+              alt="Beer Type"
+            />
+          )}
           <section id="beerReviews">
             <button onClick={displayNewReviewForm}>Add New Review!</button>
             <div style={{ display: `${formDisplay}` }} id="reviewForm">
