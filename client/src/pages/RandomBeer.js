@@ -54,15 +54,19 @@ const RandomBeer = () => {
   }
 
   return (
-    <div>
+    <div id="randomBeerPage">
       {beerPicked ? (
-        <main onClick={showBeer}>
-          <h2>{randomBeer.randomBeer.beer_name}</h2>
-          <img src={randomBeer.randomBeer.image} alt="Beer" />
+        <main onClick={showBeer} className="randomBeerContainer">
+          <h2 id="randomBeerName">{randomBeer.randomBeer.beer_name}</h2>
+          <img
+            src={randomBeer.randomBeer.image}
+            alt="Beer"
+            className="randomBeerImg"
+          />
           {avgRating ? (
-            <h2>Average Rating: {avgRating}</h2>
+            <h2 className="randomBeerRating">Average Rating: {avgRating}</h2>
           ) : (
-            <h2>Average Rating Pending</h2>
+            <h2 className="randomBeerRating">Average Rating Pending</h2>
           )}
         </main>
       ) : (
