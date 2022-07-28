@@ -27,11 +27,6 @@ body {
   width: 100%;
 }
 
-/* #routeMain {
-  display: flex;
-  justify-content: center;
-} */
-
 button {
   background-color: #55a630;
   box-shadow: 2px 2px 4px 0px #2b9348, -2px -2px 2px 0px #80b918;
@@ -55,10 +50,6 @@ img {
   border-radius: 5px;
 }
 
-/* .App {
-  overflow: scroll;
-} */
-
 nav {
   display: flex;
   justify-content: space-between;
@@ -67,7 +58,7 @@ nav {
   height: max-content;
   padding: 0.5% 0;
   background-color: #081c15;
-  /* position: sticky; */
+  position: sticky;
 }
 
 #title {

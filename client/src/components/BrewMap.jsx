@@ -4,9 +4,9 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react-17'
 const googlMapApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
 
 const mapStyles = {
-  margin: '0, auto',
-  height: '80%',
-  width: '80%'
+  margin: '10%',
+  maxHeight: '10em',
+  maxWidth: '10em'
 }
 
 const BrewMap = ({ userLocation, google, nearbyBreweries }) => {
