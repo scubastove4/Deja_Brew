@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
-import ReviewCard from '../components/ReviewCard'
-
 const RandomBeer = () => {
   const [randomBeer, setRandomBeer] = useState({})
   const [beerPicked, setBeerPicked] = useState(false)
@@ -58,11 +56,19 @@ const RandomBeer = () => {
       {beerPicked ? (
         <main onClick={showBeer} className="card randomBeerContainer">
           <h2 id="randomBeerName">{randomBeer.randomBeer.beer_name}</h2>
-          <img
-            src={randomBeer.randomBeer.image}
-            alt="Beer"
-            className="randomBeerImg"
-          />
+          {randomBeer.randomBeer.image ? (
+            <img
+              src={randomBeer.randomBeer.image}
+              alt="Beer"
+              className="randomBeerImg"
+            />
+          ) : (
+            <img
+              src={randomBeer.beerType[0].image}
+              alt="Beer Type"
+              className="randomBeerImg"
+            />
+          )}
           {avgRating ? (
             <h2 className="randomBeerRating">Average Rating: {avgRating}</h2>
           ) : (
