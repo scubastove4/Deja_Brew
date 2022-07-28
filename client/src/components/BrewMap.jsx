@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react-17'
+import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react-17'
 
 const googlMapApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
 
@@ -30,6 +30,7 @@ const BrewMap = ({ userLocation, google, nearbyBreweries }) => {
               style={mapStyles}
             />
           ))}
+          <InfoWindow></InfoWindow>
         </Map>
       ) : null}
     </div>

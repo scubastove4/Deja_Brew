@@ -11,3 +11,5 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 )
+
+//if revert to 18, need to put this back to ReactDOM.createroot... and change package.json reacts back from 17 > ^18.2.0
