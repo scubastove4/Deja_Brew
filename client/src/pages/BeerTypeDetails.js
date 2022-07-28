@@ -14,8 +14,8 @@ const BeerTypeDetails = () => {
     image: '',
     beer_name: '',
     brewery: '',
-    beer_type_id: '',
-    beer_type_name: '',
+    beer_type_id: beerTypeId,
+    beer_type_name: beerTypeContents.beerType.style_name,
     avg_rating: '',
     num_of_reviews: ''
   }
@@ -40,11 +40,6 @@ const BeerTypeDetails = () => {
 
   const displayNewBeerForm = (beerType) => {
     formDisplay === 'none' ? setFormDisplay('block') : setFormDisplay('none')
-    setNewBeer({
-      ...newBeer,
-      beer_type_id: beerType._id,
-      beer_type_name: beerType.style_name
-    })
   }
 
   const newBeerInput = (e) => {
@@ -71,16 +66,11 @@ const BeerTypeDetails = () => {
 
   return (
     <div id="beerTypeContentsPage">
-      <button onClick={() => displayNewBeerForm(beerTypeContents.beerType)}>
-        Add New Beer!
-      </button>
+      <button onClick={displayNewBeerForm}>Add New Beer!</button>
       <div
         id="beerForm"
         style={{
           display: `${formDisplay}`
-          // flexDirection: 'column',
-          // justifyContent: 'center',
-          // alignItems: 'center'
         }}
       >
         <BeerForm
