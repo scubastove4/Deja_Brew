@@ -44,20 +44,21 @@ Package installations:
 
 ### Home Page
 
-![Home_Page](screenshots/home_page.png)
+![Home_Page](/screenshots/home_page.png)
 
 ### Beer Details
 
-![Beer_Details]()
+![Beer_Details](/screenshots/beer_page.png)
 
 ### Random Beer
 
----
+![Random_Beer]()
 
 ## **_Task List(s)_**
 
 - Future Updates
 
+  - [ ] Save
   - [ ] Implement third party-API to show brewery locations
   - [ ] Search by brewery
   - [ ] Search by location

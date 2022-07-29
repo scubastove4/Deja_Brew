@@ -25,28 +25,6 @@ const RandomBeer = () => {
     beerPicked && setBeerPicked(false)
   }
 
-  const getAvgRating = () => {
-    const ratingArr = []
-    let avgRating
-    randomBeer.reviews
-      ? randomBeer.reviews.forEach((review) =>
-          ratingArr.push(Number(review.rating))
-        )
-      : (avgRating = '')
-
-    const ratingSum = ratingArr.reduce(
-      (accumulator, value) => accumulator + value,
-      0
-    )
-    randomBeer.reviews
-      ? (avgRating =
-          Math.round((ratingSum / randomBeer.reviews.length) * 100) / 100)
-      : (avgRating = '')
-    return avgRating
-  }
-
-  const avgRating = getAvgRating()
-
   const showBeer = () => {
     navigate(`/beers-page/id/${randomBeer.randomBeer._id}`)
   }
@@ -68,11 +46,6 @@ const RandomBeer = () => {
               alt="Beer Type"
               className="randomBeerImg"
             />
-          )}
-          {avgRating ? (
-            <h2 className="randomBeerRating">Average Rating: {avgRating}</h2>
-          ) : (
-            <h2 className="randomBeerRating">Average Rating Pending</h2>
           )}
         </main>
       ) : (
