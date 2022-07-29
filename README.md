@@ -4,7 +4,7 @@
 
 ### By: Steve Morello
 
-[GitHub](https://github.com/scubastove4) | [LinkedIn](https://www.linkedin.com/in/stephen-morello/) | [Twitter](https://twitter.com/scubastove4) | [Trello](https://trello.com/b/dRCos2ci/deja-brew)
+[GitHub](https://github.com/scubastove4) | [LinkedIn](https://www.linkedin.com/in/stephen-morello/) | [Twitter](https://twitter.com/scubastove4) | [Trello](https://trello.com/b/dRCos2ci/deja-brew) | [Déjà Brew](https://deja-brew-reviews.herokuapp.com/)
 
 ---
 
@@ -50,21 +50,27 @@ Package installations:
 
 ![Beer_Details](/screenshots/beer_page.png)
 
-### Random Beer
+### Nearby Breweries
 
-![Random_Beer]()
+![Nearby_Breweries](/screenshots/nearby_breweries.png)
 
 ## **_Task List(s)_**
 
 - Future Updates
 
-  - [ ] Save
+  - [ ] Update beer average ratings and number of reviews
   - [ ] Implement third party-API to show brewery locations
   - [ ] Search by brewery
   - [ ] Search by location
   - [ ] Show top/most rated beers on the home page
+  - [ ] User authentication to track reviews
 
 - Completed updates
-- [x] Show nearby breweries based on current location
+
+  - [x] Show nearby breweries based on current location
 
 ## **_Credits_**
+
+- Brewery Database: [Open Brewery DB](https://www.openbrewerydb.org/)
+- Brewery display inspiration: [Beer Me](https://hey-beer-me.herokuapp.com/)
+- Range slider inspiration: [Laura Pinto Code Pen](https://codepen.io/lauraalpinto/pen/jJPZXP)
