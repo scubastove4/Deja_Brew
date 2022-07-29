@@ -25,9 +25,11 @@ const BeerTypeDetails = () => {
   useEffect(() => {
     const renderBeerTypeContents = async () => {
       try {
-        const res = await axios.get(`/beer-types/id/${beerTypeId}`)
+        const res = await axios.get(
+          `http://localhost:3001/api/beer-types/id/${beerTypeId}`
+        )
         console.log(res)
-        // setBeerTypeContents(res.data)
+        setBeerTypeContents(res.data)
         setBeerTypeContentsHere(true)
       } catch (e) {
         console.error(e)
@@ -49,13 +51,16 @@ const BeerTypeDetails = () => {
   }
 
   const showBeer = (beer) => {
-    navigate(`/beers/id/${beer._id}`)
+    navigate(`/beers-page/id/${beer._id}`)
   }
 
   const addNewBeer = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post(`/beer-types/id/${beerTypeId}`, newBeer)
+      const res = await axios.post(
+        `http://localhost:3001/api/beer-types/id/${beerTypeId}`,
+        newBeer
+      )
       console.log(res)
       setNewBeer(initialState)
     } catch (e) {
@@ -65,7 +70,7 @@ const BeerTypeDetails = () => {
 
   return (
     <div id="beerTypeContentsPage">
-      {/* <button onClick={displayNewBeerForm}>Add New Beer!</button>
+      <button onClick={displayNewBeerForm}>Add New Beer!</button>
       <div
         id="beerForm"
         style={{
@@ -96,7 +101,7 @@ const BeerTypeDetails = () => {
         </section>
       ) : (
         <h1>Please reload page</h1>
-      )} */}
+      )}
     </div>
   )
 }

@@ -145,12 +145,6 @@ a:last-child:hover {
   border-radius: 50%;
 }
 
-#beerInput:hover,
-#beerTypeInput:hover {
-  border-radius: 50%;
-  box-shadow: 2px 2px 5px #081c15;
-}
-
 #searchButton {
   font-size: 1.15em;
   height: max-content;
@@ -380,6 +374,7 @@ form input[type='text'] {
   margin: 9% 2% 0 0;
   text-align: center;
   height: 100%;
+  max-width: 30%;
   /* width: max-content; */
 }
 

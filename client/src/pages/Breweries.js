@@ -66,7 +66,7 @@ const Breweries = () => {
           ))}
         </div>
       ) : (
-        <h2>Please reload page</h2>
+        <h2>Loading some spots</h2>
       )}
     </div>
   )

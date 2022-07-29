@@ -22,12 +22,15 @@ const Home = () => {
   const changeSearchType = (e) => {
     toggleSearchType(e.target.value)
     toggleSearchUrl(e.target.name)
+    toggleSearched(false)
   }
 
   const clickSearch = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.get(`/${searchUrl}${searchQuery}`)
+      const res = await axios.get(
+        `http://localhost:3001/api/${searchUrl}${searchQuery}`
+      )
       toggleSearched(true)
       if (searchType === 'beerType') {
         setSearchResults(res.data.beerType)
@@ -40,11 +43,11 @@ const Home = () => {
     }
   }
   const showBeersByType = (beerType) => {
-    navigate(`/beer-types/id/${beerType._id}`)
+    navigate(`/beer-types-page/id/${beerType._id}`)
   }
 
   const showBeer = (beer) => {
-    navigate(`/beers/id/${beer._id}`)
+    navigate(`/beers-page/id/${beer._id}`)
   }
 
   return (

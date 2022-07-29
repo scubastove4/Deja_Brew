@@ -15,7 +15,9 @@ const ReviewDetails = () => {
 
   useEffect(() => {
     const getReview = async () => {
-      const res = await axios.get(`/beers/review/${reviewId}`)
+      const res = await axios.get(
+        `http://localhost:3001/api/beers/review/${reviewId}`
+      )
       setReviewContents(res.data.review)
     }
     getReview()
@@ -35,18 +37,23 @@ const ReviewDetails = () => {
 
   const putReview = async (e) => {
     e.preventDefault()
-    const res = await axios.put(`/beers/review/${reviewId}`, updateReview)
+    const res = await axios.put(
+      `http://localhost:3001/api/beers/review/${reviewId}`,
+      updateReview
+    )
     console.log(res)
   }
 
   const deleteReview = async (e) => {
     e.preventDefault()
-    const res = await axios.delete(`/beers/review/${reviewId}`)
+    const res = await axios.delete(
+      `http://localhost:3001/api/beers/review/${reviewId}`
+    )
     console.log(res)
   }
 
   const goBack = () => {
-    navigate(`/beers/id/${beerId}`)
+    navigate(`/beers-page/id/${beerId}`)
   }
 
   return (

@@ -22,7 +22,9 @@ const BeerDetails = () => {
   useEffect(() => {
     const renderBeerContents = async () => {
       try {
-        const res = await axios.get(`/beers/id/${beerId}`)
+        const res = await axios.get(
+          `http://localhost:3001/api/beers/id/${beerId}`
+        )
         setBeerContents(res.data)
         setBeerContentsHere(true)
       } catch (e) {
@@ -43,7 +45,10 @@ const BeerDetails = () => {
   const addNewReview = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post(`/beers/id/${beerId}`, newReview)
+      const res = await axios.post(
+        `http://localhost:3001/api/beers/id/${beerId}`,
+        newReview
+      )
       console.log(res)
       setNewReview(initialState)
     } catch (e) {
@@ -52,7 +57,7 @@ const BeerDetails = () => {
   }
 
   const updateReview = (review) => {
-    navigate(`/beers/review/${review._id}`)
+    navigate(`/beers-page/review/${review._id}`)
   }
 
   const getAvgRating = () => {
