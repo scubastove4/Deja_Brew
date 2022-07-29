@@ -9,6 +9,7 @@ const BeerTypeDetails = () => {
   const [beerTypeContents, setBeerTypeContents] = useState({})
   const [beerTypContentsHere, setBeerTypeContentsHere] = useState(false)
   const [formDisplay, setFormDisplay] = useState('none')
+  const [rerender, setRerender] = useState(true)
   const { beerTypeId } = useParams()
   const [initialState, setInitialState] = useState({
     image: '',
@@ -29,12 +30,13 @@ const BeerTypeDetails = () => {
         console.log(res)
         setBeerTypeContents(res.data)
         setBeerTypeContentsHere(true)
+        setRerender(true)
       } catch (e) {
         console.error(e)
       }
     }
     renderBeerTypeContents()
-  }, [newBeer])
+  }, [!rerender])
 
   const displayNewBeerForm = () => {
     formDisplay === 'none' ? setFormDisplay('block') : setFormDisplay('none')
@@ -58,9 +60,11 @@ const BeerTypeDetails = () => {
       const res = await axios.post(`/beer-types/id/${beerTypeId}`, newBeer)
       console.log(res)
       setNewBeer(initialState)
+      setRerender(false)
     } catch (e) {
       console.error(e)
     }
+    formDisplay === 'block' ? setFormDisplay('none') : setFormDisplay('block')
   }
 
   return (

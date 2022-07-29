@@ -7,22 +7,20 @@ const ReviewForm = ({ newReview, newReviewInput, addNewReview }) => {
           type="text"
           value={newReview.author}
           onInput={newReviewInput}
-          placeholder="Nickname"
+          placeholder="Name"
         />
-        <div id="newRatingAndLabel">
-          <div id="newRatingDiv">
-            <input
-              id="newRating"
-              type="range"
-              min="0"
-              max="5"
-              step=".1"
-              value={newReview.rating}
-              onChange={newReviewInput}
-            />
-          </div>
-          <label htmlFor="newRating">{newReview.rating}</label>
+        <div id="newRatingDiv">
+          <input
+            id="newRating"
+            type="range"
+            min="0"
+            max="5"
+            step=".1"
+            value={newReview.rating}
+            onChange={newReviewInput}
+          />
         </div>
+        <label htmlFor="newRating">{newReview.rating}</label>
       </section>
       <textarea
         id="comment"

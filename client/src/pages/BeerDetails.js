@@ -9,6 +9,7 @@ const BeerDetails = () => {
   const [beerContents, setBeerContents] = useState({})
   const [beerContentsHere, setBeerContentsHere] = useState(false)
   const [formDisplay, setFormDisplay] = useState('none')
+  const [rerender, setRerender] = useState(true)
   const { beerId } = useParams()
   const initialState = {
     beer_id: beerId,
@@ -26,30 +27,25 @@ const BeerDetails = () => {
         const res = await axios.get(`/beers/id/${beerId}`)
         setBeerContents(res.data)
         setBeerContentsHere(true)
+        setRerender(true)
       } catch (e) {
         console.error(e)
       }
     }
     renderBeerContents()
-  }, [avgRating])
+  }, [!rerender])
 
   const displayNewReviewForm = () => {
     formDisplay === 'none' ? setFormDisplay('block') : setFormDisplay('none')
   }
 
   const newReviewInput = (e) => {
-    setNewReview({ ...setNewReview, [e.target.id]: e.target.value })
-  }
-
-  const addNewReview = async (e) => {
-    e.preventDefault()
-    try {
-      const res = await axios.post(`/beers/id/${beerId}`, newReview)
-      console.log(res)
-      setNewReview(initialState)
-    } catch (e) {
-      console.error(e)
-    }
+    e.target.id === 'newRating'
+      ? setNewReview({
+          ...newReview,
+          rating: Number(e.target.value)
+        })
+      : setNewReview({ ...newReview, [e.target.id]: e.target.value })
   }
 
   const updateReview = (review) => {
@@ -77,6 +73,19 @@ const BeerDetails = () => {
   }
 
   avgRating = getAvgRating()
+
+  const addNewReview = async (e) => {
+    e.preventDefault()
+    try {
+      const res = await axios.post(`/beers/id/${beerId}`, newReview)
+      console.log(res)
+      setNewReview(initialState)
+      setRerender(false)
+    } catch (e) {
+      console.error(e)
+    }
+    formDisplay === 'block' ? setFormDisplay('none') : setFormDisplay('block')
+  }
 
   return (
     <div id="beerDetailsPage">
