@@ -66,6 +66,7 @@ Package installations:
   - [ ] Show top/most rated beers on the home page
   - [ ] User authentication to track reviews
   - [ ] Consider beer update and delete
+  - [ ] Make site responsive
 
 - Completed updates
 
