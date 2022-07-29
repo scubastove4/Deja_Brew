@@ -57,14 +57,14 @@ const Breweries = () => {
 
   return (
     <div>
-      {breweriesHere && userLocation ? (
+      {/* {breweriesHere && userLocation ? (
         <BrewMap
           userLocation={userLocation}
           nearbyBreweries={nearbyBreweries}
         />
       ) : (
         <h1>Loading Brewery Map</h1>
-      )}
+      )} */}
     </div>
   )
 }

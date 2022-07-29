@@ -25,9 +25,7 @@ const BeerTypeDetails = () => {
   useEffect(() => {
     const renderBeerTypeContents = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:3001/api/beer-types/id/${beerTypeId}`
-        )
+        const res = await axios.get(`/beer-types/id/${beerTypeId}`)
         setBeerTypeContents(res.data)
         setBeerTypeContentsHere(true)
       } catch (e) {
@@ -56,10 +54,7 @@ const BeerTypeDetails = () => {
   const addNewBeer = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post(
-        `http://localhost:3001/api/beer-types/id/${beerTypeId}`,
-        newBeer
-      )
+      const res = await axios.post(`/beer-types/id/${beerTypeId}`, newBeer)
       console.log(res)
       setNewBeer(initialState)
     } catch (e) {

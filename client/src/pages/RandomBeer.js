@@ -10,7 +10,7 @@ const RandomBeer = () => {
   useEffect(() => {
     const renderRandomBeer = async () => {
       try {
-        const res = await axios.get('http://localhost:3001/api/random-beer')
+        const res = await axios.get('/random-beer')
         setRandomBeer(res.data)
         setBeerPicked(true)
       } catch (e) {
