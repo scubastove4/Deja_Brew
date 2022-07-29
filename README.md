@@ -4,16 +4,17 @@
 
 ### By: Steve Morello
 
-[GitHub](https://github.com/scubastove4) | [LinkedIn](https://www.linkedin.com/in/stephen-morello/) | [Twitter](https://twitter.com/scubastove4) | [Trello](https://trello.com/b/dRCos2ci/deja-brew) | [Déjà Brew](https://deja-brew-reviews.herokuapp.com/)
+[GitHub](https://github.com/scubastove4) | [LinkedIn](https://www.linkedin.com/in/stephen-morello/) | [Twitter](https://twitter.com/scubastove4) | [Trello](https://trello.com/b/dRCos2ci/Déjà-brew) | [Déjà Brew](https://Déjà-brew-reviews.herokuapp.com/)
 
 ---
 
 ## **_Description_**
 
-![Random Beer Pic](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F492714%2Fbeer-on-a-table.jpg&f=1&nofb=1)
-Deja Brew is the second project I completed as a student in the General Assembly Software Engineering Immersive program. This project is a MERN application that was completed over the course of a week.
+## ![Random Beer Pic](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F492714%2Fbeer-on-a-table.jpg&f=1&nofb=1)
 
-Deja Brew is a public beer review app. Users can search by beer type or beer name. When reviewing each beer, users have the option to rate from 0-5, and leave a comment. Deja Brew also has a neat random beer feature for those who like to try any and every beer, just click on the link and a beer from the database will pop up.
+Déjà Brew is the second project I completed as a student in the General Assembly Software Engineering Immersive program. This project is a MERN application that was completed over the course of a week.
+
+Déjà Brew is a public beer review app. Users can search by beer type or beer name. When reviewing each beer, users have the option to rate from 0-5, and leave a comment. Déjà Brew also has a neat random beer feature for those who like to try any and every beer, just click on the link and a beer from the database will pop up.
 
 ---
 
