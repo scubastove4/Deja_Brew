@@ -49,7 +49,7 @@ Package installations:
 
 ### Beer Details
 
-![Beer_Details](/screenshots/beer_page.png)
+![Beer_Details](/screenshots/beer_details.png)
 
 ### Nearby Breweries
 
