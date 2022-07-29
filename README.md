@@ -65,6 +65,7 @@ Package installations:
   - [ ] Search by location
   - [ ] Show top/most rated beers on the home page
   - [ ] User authentication to track reviews
+  - [ ] Consider beer update and delete
 
 - Completed updates
 
