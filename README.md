@@ -77,4 +77,4 @@ Package installations:
 - Brewery Database: [Open Brewery DB](https://www.openbrewerydb.org/)
 - Brewery display inspiration: [Beer Me](https://hey-beer-me.herokuapp.com/)
 - Range slider inspiration: [Laura Pinto Code Pen](https://codepen.io/lauraalpinto/pen/jJPZXP)
-- Google Fonts: Shadows Into Light
+- Google Fonts: [Shadows Into Light](https://fonts.google.com/specimen/Shadows+Into+Light?query=Shadows+Into+Light)
