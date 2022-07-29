@@ -29,9 +29,9 @@ Deja Brew is a public beer review app. Users can search by beer type or beer nam
 
 ## **_App Overview_**
 
-The homepage is where you start your search for that sudsy goodness. If you're not sure what you want exactly but have an idea of what style of beer you'd like, use the search bar to see some options in your style of choice. If you're stuck between a couple options, pop their names into the search to see what others think about them.
+The homepage is where you start your search for that sudsy goodness. If you're not sure what you want exactly but have an idea of what style of beer you'd like, use the search bar to see some options in your style of choice. If you're pretty sure what you'd like but want to see what others think of it first, search the beer name and click the coaster to see reviews.
 
-The navbar up top links to a Beer by Type page that is a little more broad, so you can see a whole bunch of styles. Clicking on an individual style will provide a list of beers in that category. If you're up for anything, there's also a random beer generator that will give a suggestion from our database.
+The navbar up top links to a Beer by Type page that is a little more broad, so you can see a whole bunch of styles. Clicking on an individual style will provide a list of beers in that category. If you're up for anything, there's also a random beer generator that will give a suggestion from our database!
 
 ## **_Getting Started_**
 
@@ -44,7 +44,11 @@ Package installations:
 
 ### Home Page
 
-### Review
+![Home_Page](screenshots/home_page.png)
+
+### Beer Details
+
+![Beer_Details]()
 
 ### Random Beer
 

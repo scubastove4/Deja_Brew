@@ -13,20 +13,6 @@ const BeerCard = ({ beer, showBeer, beerTypeContents }) => {
           />
         )}
       </div>
-      <div>
-        {beer.avg_rating ? (
-          <h2>Avg Rating: {beer.avg_rating}</h2>
-        ) : (
-          <h2>Rating Pending</h2>
-        )}
-      </div>
-      <div>
-        {beer.num_of_reviews ? (
-          <h2>Reviews: {beer.num_of_reviews}</h2>
-        ) : (
-          <h2>Reviews Pending</h2>
-        )}
-      </div>
     </div>
   )
 }
