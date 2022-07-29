@@ -307,7 +307,7 @@ form section {
   width: 100%;
 }
 
-form input {
+form input[type='text'] {
   height: 2em;
   width: 11em;
   border-radius: 5px;
