@@ -14,7 +14,7 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.static(`${__dirname}/client/build`))
 
-app.use('/api', routes)
+app.use('/', routes)
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
