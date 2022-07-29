@@ -45,14 +45,12 @@ const ReviewDetails = () => {
   const putReview = async (e) => {
     e.preventDefault()
     const res = await axios.put(`/beers/review/${reviewId}`, updateReview)
-    console.log(res)
     goBack()
   }
 
   const deleteReview = async (e) => {
     e.preventDefault()
     const res = await axios.delete(`/beers/review/${reviewId}`)
-    console.log(res)
     goBack()
   }
 

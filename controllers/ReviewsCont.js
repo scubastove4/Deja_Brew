@@ -20,16 +20,6 @@ const getReview = async (req, res) => {
   }
 }
 
-// const getBeerReviews = async (req, res) => {
-//   try {
-//     const { beerId } = req.params
-//     const beerReviews = await Review.find({ beer_id: beerId })
-//     return res.status(200).json({ beerReviews })
-//   } catch (e) {
-//     return res.status(500).send(e.message)
-//   }
-// }
-
 const updateReview = async (req, res) => {
   try {
     const { reviewId } = req.params
@@ -58,7 +48,6 @@ const deleteReview = async (req, res) => {
 module.exports = {
   createReview,
   getReview,
-  // getBeerReviews,
   updateReview,
   deleteReview
 }

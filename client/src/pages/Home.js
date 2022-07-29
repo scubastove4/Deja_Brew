@@ -37,7 +37,7 @@ const Home = () => {
       }
       setSearchQuery('')
     } catch (error) {
-      console.log(error)
+      console.error(error)
     }
   }
   const showBeersByType = (beerType) => {

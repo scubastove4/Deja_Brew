@@ -4,7 +4,6 @@ const { BeerType } = require('../models')
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 const main = async () => {
-  // BeerType.collection.drop()
   const beerTypes = [
     {
       image:

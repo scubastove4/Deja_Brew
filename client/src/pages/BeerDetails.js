@@ -20,7 +20,6 @@ const BeerDetails = () => {
   const [newReview, setNewReview] = useState(initialState)
   const [numReviews, setNumReviews] = useState(0)
   const [avgRating, setAvgRating] = useState(0)
-  const [beer, setBeer] = useState({})
 
   let navigate = useNavigate()
 
@@ -28,7 +27,6 @@ const BeerDetails = () => {
     const renderBeerContents = async () => {
       try {
         const res = await axios.get(`/beers/id/${beerId}`)
-        console.log(res.data)
         setBeerContents(res.data)
         setBeerContentsHere(true)
         setRerender(true)
@@ -40,7 +38,6 @@ const BeerDetails = () => {
   }, [!rerender])
 
   useEffect(() => {
-    setBeer(beerContents.beer)
     const getRatingAndReviews = async () => {
       let ratingArr = []
       let ratingSum
@@ -86,15 +83,8 @@ const BeerDetails = () => {
     e.preventDefault()
     try {
       const res = await axios.post(`/beers/id/${beerId}`, newReview)
-      console.log(res)
       setNewReview(initialState)
       setRerender(false)
-    } catch (e) {
-      console.error(e)
-    }
-    try {
-      console.log(beer)
-      const res = await axios.put(`/beers/id/${beerId}`, beer)
     } catch (e) {
       console.error(e)
     }

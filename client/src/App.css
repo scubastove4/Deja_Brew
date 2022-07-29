@@ -73,7 +73,6 @@ nav {
 a {
   text-decoration: none;
   color: #edf2f4;
-  /* margin: 0 1% 0 0; */
   border-right: 2px solid #edf2f4;
   padding: 0.5% 1% 0.5% 01%;
   border-radius: 5px 0 0 5px;
@@ -196,7 +195,6 @@ a:last-child:hover {
 
 .cardImg {
   width: 100%;
-  /* height: 7em; */
   max-height: 15em;
   border-radius: 5px;
 }
@@ -344,13 +342,7 @@ form input[type='text'] {
 /*////////////////////////  Beer Type Details page above  //////////////////// */
 
 #beerDetailsPage {
-  /* display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center; */
-
   height: 100%;
-  /* width: 98vw; */
 }
 
 #beerDetailsContainer {
@@ -375,7 +367,6 @@ form input[type='text'] {
   text-align: center;
   height: 100%;
   max-width: 30%;
-  /* width: max-content; */
 }
 
 #beerNameAndRating h1 {
@@ -427,7 +418,6 @@ form input[type='text'] {
 
 #reviewFormSection {
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
 
   width: 100%;
@@ -438,15 +428,6 @@ form input[type='text'] {
   margin-right: 3%;
   width: 40%;
 }
-
-/* #rangeAndLabelContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
-  width: 30%;
-} */
 
 #newRatingDiv {
   display: flex;
@@ -527,7 +508,6 @@ form input[type='text'] {
 .reviewCard {
   height: max-content;
   width: 45%;
-  /* margin: 0 0.5% 0 0; */
   padding: 0.5% 1%;
 }
 
@@ -652,10 +632,6 @@ form input[type='text'] {
 }
 
 /*/ ///////////////////////  Review Details page above  //////////////////// */
-/* .mapContainer {
-  height: 80%;
-  width: 80%;
-} */
 
 #breweryPage {
   display: flex;

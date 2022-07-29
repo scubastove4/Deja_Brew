@@ -27,7 +27,6 @@ const BeerTypeDetails = () => {
     const renderBeerTypeContents = async () => {
       try {
         const res = await axios.get(`/beer-types/id/${beerTypeId}`)
-        console.log(res)
         setBeerTypeContents(res.data)
         setBeerTypeContentsHere(true)
         setRerender(true)
@@ -58,7 +57,6 @@ const BeerTypeDetails = () => {
     e.preventDefault()
     try {
       const res = await axios.post(`/beer-types/id/${beerTypeId}`, newBeer)
-      console.log(res)
       setNewBeer(initialState)
       setRerender(false)
     } catch (e) {
