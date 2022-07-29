@@ -524,3 +524,34 @@ form input[type='text'] {
   height: 80%;
   width: 80%;
 } */
+
+#breweryPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#breweryTitle {
+  font-size: 2.5em;
+}
+
+.breweryCardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  width: 100%;
+}
+
+.breweryCard {
+  height: max-content;
+  width: max-content;
+  margin: 1%;
+  padding: 1%;
+  border-radius: 10px;
+  background: linear-gradient(to right top, #2b9348, #55a630, #80b918);
+  box-shadow: 4px 4px 4px #2b9348, -1px -1px 2px 0 #ffd49f;
+  text-align: center;
+}

@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react'
 import axios from 'axios'
 
 import BrewMap from '../components/BrewMap'
+import BreweryCard from '../components/BreweryCard'
 
 const Breweries = () => {
   const [userLocation, setUserLocation] = useState({
@@ -56,17 +57,29 @@ const Breweries = () => {
   // Google Maps help https://www.npmjs.com/package/@react-google-maps/api and https://youtu.be/9e-5QHpadi0
 
   return (
-    <div>
-      {/* {breweriesHere && userLocation ? (
-        <BrewMap
-          userLocation={userLocation}
-          nearbyBreweries={nearbyBreweries}
-        />
+    <div id="breweryPage">
+      <h2 id="breweryTitle">Breweries in Your Vicinity!</h2>
+      {breweriesHere ? (
+        <div className="breweryCardContainer">
+          {nearbyBreweries.map((brewery) => (
+            <BreweryCard brewery={brewery} key={brewery.id} />
+          ))}
+        </div>
       ) : (
-        <h1>Loading Brewery Map</h1>
-      )} */}
+        <h2>Please reload page</h2>
+      )}
     </div>
   )
+}
+{
+  /* {breweriesHere && userLocation ? (
+      <BrewMap
+        userLocation={userLocation}
+        nearbyBreweries={nearbyBreweries}
+      />
+    ) : (
+      <h1>Loading Brewery Map</h1>
+    )} */
 }
 
 export default Breweries
