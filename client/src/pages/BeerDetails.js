@@ -17,6 +17,7 @@ const BeerDetails = () => {
     comment: ''
   }
   const [newReview, setNewReview] = useState(initialState)
+  let avgRating
   let navigate = useNavigate()
 
   useEffect(() => {
@@ -30,14 +31,14 @@ const BeerDetails = () => {
       }
     }
     renderBeerContents()
-  }, [newReview])
+  }, [avgRating])
 
   const displayNewReviewForm = () => {
-    formDisplay === 'none' ? setFormDisplay('flex') : setFormDisplay('none')
+    formDisplay === 'none' ? setFormDisplay('block') : setFormDisplay('none')
   }
 
   const newReviewInput = (e) => {
-    setNewReview({ ...newReview, [e.target.id]: e.target.value })
+    setNewReview({ ...setNewReview, [e.target.id]: e.target.value })
   }
 
   const addNewReview = async (e) => {
@@ -75,7 +76,7 @@ const BeerDetails = () => {
     return avgRating
   }
 
-  const avgRating = getAvgRating()
+  avgRating = getAvgRating()
 
   return (
     <div id="beerDetailsPage">

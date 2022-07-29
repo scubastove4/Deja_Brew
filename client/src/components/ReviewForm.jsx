@@ -1,7 +1,7 @@
 const ReviewForm = ({ newReview, newReviewInput, addNewReview }) => {
   return (
     <form onSubmit={(e) => addNewReview(e)}>
-      <section>
+      <section id="reviewFormSection">
         <input
           id="author"
           type="text"
@@ -9,13 +9,20 @@ const ReviewForm = ({ newReview, newReviewInput, addNewReview }) => {
           onInput={newReviewInput}
           placeholder="Nickname"
         />
-        <input
-          id="rating"
-          type="text"
-          value={newReview.rating}
-          onInput={newReviewInput}
-          placeholder="Rating 0-5"
-        />
+        <div id="newRatingAndLabel">
+          <div id="newRatingDiv">
+            <input
+              id="newRating"
+              type="range"
+              min="0"
+              max="5"
+              step=".1"
+              value={newReview.rating}
+              onChange={newReviewInput}
+            />
+          </div>
+          <label htmlFor="newRating">{newReview.rating}</label>
+        </div>
       </section>
       <textarea
         id="comment"
