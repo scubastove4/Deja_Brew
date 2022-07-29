@@ -18,13 +18,17 @@ const BeerDetails = () => {
     comment: ''
   }
   const [newReview, setNewReview] = useState(initialState)
-  let avgRating
+  const [numReviews, setNumReviews] = useState(0)
+  const [avgRating, setAvgRating] = useState(0)
+  const [beer, setBeer] = useState({})
+
   let navigate = useNavigate()
 
   useEffect(() => {
     const renderBeerContents = async () => {
       try {
         const res = await axios.get(`/beers/id/${beerId}`)
+        console.log(res.data)
         setBeerContents(res.data)
         setBeerContentsHere(true)
         setRerender(true)
@@ -34,6 +38,32 @@ const BeerDetails = () => {
     }
     renderBeerContents()
   }, [!rerender])
+
+  useEffect(() => {
+    setBeer(beerContents.beer)
+    const getRatingAndReviews = async () => {
+      let ratingArr = []
+      let ratingSum
+      let avgRatingCalc
+      let numReviewsCalc
+      if (beerContents.reviews) {
+        beerContents.reviews.forEach((review) => ratingArr.push(review.rating))
+        ratingSum = ratingArr.reduce(
+          (accumulator, value) => accumulator + value,
+          0
+        )
+        avgRatingCalc =
+          Math.round((ratingSum / beerContents.reviews.length) * 100) / 100
+        numReviewsCalc = beerContents.reviews.length
+      } else {
+        avgRatingCalc = 0
+        numReviewsCalc = 0
+      }
+      setAvgRating(avgRatingCalc)
+      setNumReviews(numReviewsCalc)
+    }
+    getRatingAndReviews()
+  }, [beerContents.reviews])
 
   const displayNewReviewForm = () => {
     formDisplay === 'none' ? setFormDisplay('block') : setFormDisplay('none')
@@ -52,28 +82,6 @@ const BeerDetails = () => {
     navigate(`/beers-page/review/${review._id}`)
   }
 
-  const getAvgRating = () => {
-    const ratingArr = []
-    let avgRating
-    beerContents.reviews
-      ? beerContents.reviews.forEach((review) =>
-          ratingArr.push(Number(review.rating))
-        )
-      : (avgRating = '')
-
-    const ratingSum = ratingArr.reduce(
-      (accumulator, value) => accumulator + value,
-      0
-    )
-    beerContents.reviews
-      ? (avgRating =
-          Math.round((ratingSum / beerContents.reviews.length) * 100) / 100)
-      : (avgRating = '')
-    return avgRating
-  }
-
-  avgRating = getAvgRating()
-
   const addNewReview = async (e) => {
     e.preventDefault()
     try {
@@ -81,6 +89,12 @@ const BeerDetails = () => {
       console.log(res)
       setNewReview(initialState)
       setRerender(false)
+    } catch (e) {
+      console.error(e)
+    }
+    try {
+      console.log(beer)
+      const res = await axios.put(`/beers/id/${beerId}`, beer)
     } catch (e) {
       console.error(e)
     }
@@ -93,8 +107,12 @@ const BeerDetails = () => {
         <main id="beerDetailsContainer">
           <div id="beerNameAndRating">
             <h1>{beerContents.beer.beer_name}</h1>
-            <h2>Number of Reviews: {beerContents.reviews.length}</h2>
-            {avgRating ? (
+            {beerContents.reviews ? (
+              <h2>Number of Reviews: {numReviews}</h2>
+            ) : (
+              <h2>Number of Reviews: 0</h2>
+            )}
+            {beerContents.reviews.length > 0 ? (
               <h2>Average Rating: {avgRating}</h2>
             ) : (
               <h2>Be the first to review and rate this beer!</h2>

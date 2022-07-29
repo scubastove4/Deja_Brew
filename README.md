@@ -13,7 +13,7 @@
 ![Random Beer Pic](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fg.foolcdn.com%2Feditorial%2Fimages%2F492714%2Fbeer-on-a-table.jpg&f=1&nofb=1)
 Deja Brew is the second project I completed as a student in the General Assembly Software Engineering Immersive program. This project is a MERN application that was completed over the course of a week.
 
-Deja Brew is a public beer review app. Users can search by beer type or beer name. When reviewing each beer, users have the option to rate from 0-5, create a flavor profile, and leave a comment. Deja Brew also has a neat random beer feature for those who like to try any and every beer, just click on the link and a beer from the database will pop up.
+Deja Brew is a public beer review app. Users can search by beer type or beer name. When reviewing each beer, users have the option to rate from 0-5, and leave a comment. Deja Brew also has a neat random beer feature for those who like to try any and every beer, just click on the link and a beer from the database will pop up.
 
 ---
 
@@ -37,7 +37,8 @@ The navbar up top links to a Beer by Type page that is a little more broad, so y
 
 Package installations:
 
-- Initialize node modules with npm init -y
+- Fork and clone the repository
+- Initialize node modules with npm i
 
 ## **_Screenshots_**
 
@@ -53,11 +54,12 @@ Package installations:
 
 - Future Updates
 
-  - [ ] Search by Brewery
+  - [ ] Implement third party-API to show brewery locations
+  - [ ] Search by brewery
   - [ ] Search by location
   - [ ] Show top/most rated beers on the home page
-  - [ ] Implement third party-API to find beer store locations
 
 - Completed updates
+- [x] Show nearby breweries based on current location
 
 ## **_Credits_**
