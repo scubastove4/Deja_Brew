@@ -1,10 +1,10 @@
+const { default: mongoose } = require('mongoose')
 const db = require('../db')
 const { Beer, BeerType } = require('../models')
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
 const main = async () => {
-  Beer.dropCollection()
   const amber = await BeerType.find({ style_name: { $in: [/Amber/] } })
   const ipa = await BeerType.find({
     $and: [

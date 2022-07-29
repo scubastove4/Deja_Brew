@@ -26,7 +26,8 @@ const BeerTypeDetails = () => {
     const renderBeerTypeContents = async () => {
       try {
         const res = await axios.get(`/beer-types/id/${beerTypeId}`)
-        setBeerTypeContents(res.data)
+        console.log(res)
+        // setBeerTypeContents(res.data)
         setBeerTypeContentsHere(true)
       } catch (e) {
         console.error(e)
@@ -64,7 +65,7 @@ const BeerTypeDetails = () => {
 
   return (
     <div id="beerTypeContentsPage">
-      <button onClick={displayNewBeerForm}>Add New Beer!</button>
+      {/* <button onClick={displayNewBeerForm}>Add New Beer!</button>
       <div
         id="beerForm"
         style={{
@@ -95,7 +96,7 @@ const BeerTypeDetails = () => {
         </section>
       ) : (
         <h1>Please reload page</h1>
-      )}
+      )} */}
     </div>
   )
 }

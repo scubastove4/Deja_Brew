@@ -20,15 +20,18 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/beer-types" element={<BeerTypes />} />
+          <Route path="/beer-types-page" element={<BeerTypes />} />
           <Route
-            path="/beer-types/id/:beerTypeId"
+            path="/beer-types-page/id/:beerTypeId"
             element={<BeerTypeDetails />}
           />
-          <Route path="/random-beer" element={<RandomBeer />} />
-          <Route path="/beers/id/:beerId" element={<BeerDetails />} />
-          <Route path="/beers/review/:reviewId" element={<ReviewDetails />} />
-          <Route path="/breweries" element={<Breweries />} />
+          <Route path="/random-beer-page" element={<RandomBeer />} />
+          <Route path="/beers-page/id/:beerId" element={<BeerDetails />} />
+          <Route
+            path="/beers-page/review/:reviewId"
+            element={<ReviewDetails />}
+          />
+          <Route path="/breweries-page" element={<Breweries />} />
         </Routes>
       </main>
     </div>
