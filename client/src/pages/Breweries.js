@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 import BreweryCard from '../components/BreweryCard'
@@ -24,6 +24,8 @@ const Breweries = () => {
         navigator.geolocation.getCurrentPosition(getUserLocation, (error) => {
           console.error(`Error = ${error.code}: ${error.message}`)
         })
+      } else {
+        alert('Geolocation not supported by this browser')
       }
     }
 
