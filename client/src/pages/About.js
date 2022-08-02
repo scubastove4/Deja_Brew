@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <div>
+    <div id="aboutContainer">
       <h2>About the Developer</h2>
       <p>
         Hi! I'm Steve Morello, an NYC/LI-based full-stack software engineer.
