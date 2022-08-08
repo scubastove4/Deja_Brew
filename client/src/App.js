@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import NavBar from './components/NavBar'
@@ -9,10 +10,41 @@ import BeerDetails from './pages/BeerDetails'
 import RandomBeer from './pages/RandomBeer'
 import ReviewDetails from './pages/ReviewDetails'
 import Breweries from './pages/Breweries'
+import MapDisplay from './pages/MapDisplay'
 
 import './App.css'
 
 function App() {
+  const mapApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
+
+  const [userLocation, setUserLocation] = useState({
+    lat: '',
+    lng: ''
+  })
+
+  useEffect(() => {
+    const getUserLocation = async (position) => {
+      await setUserLocation({
+        ...userLocation,
+        lat: Number(position.coords.latitude),
+        lng: Number(position.coords.longitude)
+      })
+    }
+    const getLocation = () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(getUserLocation, (error) => {
+          console.error(`Error = ${error.code}: ${error.message}`)
+        })
+      } else {
+        alert('Geolocation not supported by this browser')
+      }
+    }
+
+    getLocation()
+  }, [])
+
+  // geolocation help https://youtu.be/U3dLjHN0UvM and https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
+
   return (
     <div className="App">
       <NavBar />
@@ -20,19 +52,24 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/beer-types-page" element={<BeerTypes />} />
+          <Route path="/beer-types" element={<BeerTypes />} />
           <Route
-            path="/beer-types-page/id/:beerTypeId"
+            path="/beer-types/id/:beerTypeId"
             element={<BeerTypeDetails />}
           />
-          <Route path="/random-beer-page" element={<RandomBeer />} />
-          <Route path="/beers-page/id/:beerId" element={<BeerDetails />} />
+          <Route path="/random-beer" element={<RandomBeer />} />
+          <Route path="/beers/id/:beerId" element={<BeerDetails />} />
+          <Route path="/beers/review/:reviewId" element={<ReviewDetails />} />
           <Route
-            path="/beers-page/review/:reviewId"
-            element={<ReviewDetails />}
+            path="/breweries"
+            element={<Breweries userLocation={userLocation} />}
           />
-          <Route path="/breweries-page" element={<Breweries />} />
-          <Route path="/breweries-page" element={<Breweries />} />
+          <Route
+            path="/brewery-map"
+            element={
+              <MapDisplay userLocation={userLocation} mapApiKey={mapApiKey} />
+            }
+          />
         </Routes>
       </main>
     </div>

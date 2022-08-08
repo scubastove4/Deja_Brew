@@ -1,16 +1,24 @@
 import { useState, useEffect, useRef } from 'react'
 
-const Map = () => {
+const Map = ({ userLocation }) => {
   const ref = useRef(null)
   const [map, setMap] = useState()
 
   useEffect(() => {
-    if (ref.current && !map) {
-      setMap(new window.__googleMapsCallback.maps.Map(ref.current, {}))
+    const generateMap = () => {
+      if (ref.current && !map) {
+        setMap(
+          new window.google.maps.Map(ref.current, {
+            center: userLocation,
+            zoom: 14
+          })
+        )
+      }
     }
+    userLocation && generateMap()
   }, [ref, map])
 
-  return <div ref={ref} />
+  return <div ref={ref} style={{ height: '400px', width: '400px' }} />
 }
 
 export default Map

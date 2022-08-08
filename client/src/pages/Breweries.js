@@ -3,34 +3,9 @@ import axios from 'axios'
 
 import BreweryCard from '../components/BreweryCard'
 
-const Breweries = () => {
-  const [userLocation, setUserLocation] = useState({
-    lat: '',
-    lng: ''
-  })
+const Breweries = ({ userLocation }) => {
   const [nearbyBreweries, setNearbyBreweries] = useState({})
   const [breweriesHere, setBreweriesHere] = useState(false)
-
-  useEffect(() => {
-    const getUserLocation = async (position) => {
-      await setUserLocation({
-        ...userLocation,
-        lat: Number(position.coords.latitude),
-        lng: Number(position.coords.longitude)
-      })
-    }
-    const getLocation = () => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(getUserLocation, (error) => {
-          console.error(`Error = ${error.code}: ${error.message}`)
-        })
-      } else {
-        alert('Geolocation not supported by this browser')
-      }
-    }
-
-    getLocation()
-  }, [])
 
   useEffect(() => {
     const getNearbyBreweries = async () => {
@@ -45,9 +20,7 @@ const Breweries = () => {
       }
     }
     getNearbyBreweries()
-  }, [userLocation])
-
-  // geolocation help https://youtu.be/U3dLjHN0UvM and https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
+  }, [])
 
   return (
     <div id="breweryPage">
