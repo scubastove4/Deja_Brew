@@ -15,8 +15,6 @@ import MapDisplay from './pages/MapDisplay'
 import './App.css'
 
 function App() {
-  const mapApiKey = process.env.REACT_APP_GOOGLE_MAPS_API_KEY
-
   const [userLocation, setUserLocation] = useState({
     lat: '',
     lng: ''
@@ -66,9 +64,7 @@ function App() {
           />
           <Route
             path="/brewery-map"
-            element={
-              <MapDisplay userLocation={userLocation} mapApiKey={mapApiKey} />
-            }
+            element={<MapDisplay userLocation={userLocation} />}
           />
         </Routes>
       </main>

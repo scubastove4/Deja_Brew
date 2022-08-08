@@ -1,9 +1,9 @@
 import { Wrapper } from '@googlemaps/react-wrapper'
 import Map from '../components/Map'
 
-const MapDisplay = ({ userLocation, mapApiKey }) => {
+const MapDisplay = ({ userLocation }) => {
   return (
-    <Wrapper apiKey={mapApiKey}>
+    <Wrapper apiKey={`${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`}>
       <Map userLocation={userLocation} />
     </Wrapper>
   )
