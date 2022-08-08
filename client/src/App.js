@@ -32,6 +32,7 @@ function App() {
             element={<ReviewDetails />}
           />
           <Route path="/breweries-page" element={<Breweries />} />
+          <Route path="/breweries-page" element={<Breweries />} />
         </Routes>
       </main>
     </div>
