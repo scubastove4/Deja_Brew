@@ -11,7 +11,7 @@ const MapDisplay = () => {
     lat: 0,
     lng: 0
   })
-  const [nearbyBreweries, setNearbyBreweries] = useState(null)
+  const [nearbyBreweries, setNearbyBreweries] = useState([])
 
   const getUserLocation = (position) => {
     userLocation.current.lat = Number(position.coords.latitude)
@@ -58,7 +58,7 @@ const MapDisplay = () => {
       render={render}
     >
       <Map userLocation={userLocation.current}>
-        {nearbyBreweries && nearbyBreweries.length > 0
+        {nearbyBreweries.length
           ? nearbyBreweries.map((brewery) => (
               <Marker
                 position={{ lat: brewery.latitude, lng: brewery.longitude }}
