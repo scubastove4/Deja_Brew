@@ -15,7 +15,7 @@ const BeerTypes = () => {
   useEffect(() => {
     const renderBeerTypes = async () => {
       try {
-        const res = await axios.get(`${DB_URL}/api/beer-types`)
+        const res = await axios.get('/api/beer-types')
         setBeerTypes(res.data.beerTypes)
         setBeerTypesHere(true)
       } catch (e) {
