@@ -4,7 +4,7 @@
 
 ### By: Steve Morello
 
-[GitHub](https://github.com/scubastove4) | [LinkedIn](https://www.linkedin.com/in/stephen-morello/) | [Twitter](https://twitter.com/scubastove4) | [Trello](https://trello.com/b/dRCos2ci/Déjà-brew) | [Déjà Brew](https://deja-brew-reviews.herokuapp.com/)
+[GitHub](https://github.com/scubastove4) | [LinkedIn](https://www.linkedin.com/in/stephen-morello/) | [Twitter](https://twitter.com/scubastove4) | [Trello](https://trello.com/b/dRCos2ci/Déjà-brew) | [Déjà Brew](https://deja-brew-reviews.netlify.app/)
 
 ---
 
