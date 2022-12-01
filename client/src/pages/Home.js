@@ -58,6 +58,7 @@ const Home = () => {
         searchType={searchType}
         searchResults={searchResults}
       />
+      <h1>Reconfiguring DB connection, pardon the lack of access :(</h1>
       <section>
         {searched ? (
           searchResults.length > 0 ? (
