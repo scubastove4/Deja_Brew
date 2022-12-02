@@ -19,6 +19,8 @@ const Home = () => {
     setSearchQuery(e.target.value)
   }
 
+  console.log(process.env.MONGODB_URI)
+
   const changeSearchType = (e) => {
     toggleSearchType(e.target.value)
     toggleSearchUrl(e.target.name)
