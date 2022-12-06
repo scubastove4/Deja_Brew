@@ -48,6 +48,14 @@ const MapDisplay = () => {
   useEffect(() => {
     getLocation()
     getNearbyBreweries()
+    // if (nearbyBreweries.length) {
+    //   let
+    //   nearbyBreweries
+    //     .forEach((brewery) => (brewery.latitude = parseFloat(brewery.latitude)))
+    //     .forEach(
+    //       (brewery) => (brewery.longitude = parseFloat(brewery.longitude))
+    //     )
+    // }
   }, [])
 
   // geolocation help https://youtu.be/U3dLjHN0UvM and https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
@@ -61,7 +69,10 @@ const MapDisplay = () => {
         {nearbyBreweries.length
           ? nearbyBreweries.map((brewery) => (
               <Marker
-                position={{ lat: brewery.latitude, lng: brewery.longitude }}
+                position={{
+                  lat: parseFloat(brewery.latitude),
+                  lng: parseFloat(brewery.longitude)
+                }}
                 key={brewery.id}
               />
             ))

@@ -11,20 +11,21 @@ const Map = ({ userLocation, children }) => {
   const ref = useRef(null)
   const [map, setMap] = useState()
 
-  const generateMap = () => {
-    if (ref.current && !map) {
-      setMap(
-        new window.google.maps.Map(ref.current, {
-          center: userLocation,
-          zoom: 14
-        })
-      )
-    }
-  }
+  // const generateMap = () => {}
 
   useEffect(() => {
-    generateMap()
-  }, [ref, map])
+    // userLocation && generateMap()
+    if (userLocation) {
+      if (ref.current && !map) {
+        setMap(
+          new window.google.maps.Map(ref.current, {
+            center: { lat: userLocation.lat, lng: userLocation.lng },
+            zoom: 11
+          })
+        )
+      }
+    }
+  }, [ref, map, !userLocation.lat])
 
   return (
     <>
