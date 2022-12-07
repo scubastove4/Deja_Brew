@@ -7,9 +7,9 @@ const NavBar = () => {
       <div id="linkDiv">
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
-        <Link to="/random-beer-page">Random Beer</Link>
-        <Link to="/beer-types-page">Beer Types</Link>
-        <Link to="/breweries-page">Breweries</Link>
+        <Link to="/random-beer">Random Beer</Link>
+        <Link to="/beer-types">Beer Types</Link>
+        <Link to="/brewery-map">Breweries</Link>
       </div>
     </nav>
   )

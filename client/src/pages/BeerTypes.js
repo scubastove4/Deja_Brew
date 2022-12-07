@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
+import { DB_URL } from '../global'
+
 import BeerTypeCard from '../components/BeerTypeCard'
 
 const BeerTypes = () => {
@@ -13,7 +15,7 @@ const BeerTypes = () => {
   useEffect(() => {
     const renderBeerTypes = async () => {
       try {
-        const res = await axios.get('/beer-types')
+        const res = await axios.get('/api/beer-types')
         setBeerTypes(res.data.beerTypes)
         setBeerTypesHere(true)
       } catch (e) {

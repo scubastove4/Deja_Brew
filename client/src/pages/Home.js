@@ -28,7 +28,7 @@ const Home = () => {
   const clickSearch = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.get(`/${searchUrl}${searchQuery}`)
+      const res = await axios.get(`/api/${searchUrl}${searchQuery}`)
       toggleSearched(true)
       if (searchType === 'beerType') {
         setSearchResults(res.data.beerType)
