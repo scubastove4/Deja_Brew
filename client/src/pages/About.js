@@ -3,19 +3,18 @@ const About = () => {
     <div id="aboutContainer">
       <h2>About the Developer</h2>
       <p>
-        Hi! I'm Steve Morello, an NYC/LI-based full-stack software engineer.
-        This app is my second project completed in the General Assembly Software
-        Engineering Immersive. The application was created in a week and is
-        built on a MERN-stack.
+        Hi! I'm Steve Morello, an NYC/LI-based software engineer. This app is my
+        second project completed in the General Assembly Software Engineering
+        Immersive. The application was created in a week and is built on a
+        MERN-stack.
       </p>
       <br />
       <p>
         My inspiration for Déjà Brew is Untappd, an app I use basically every
-        weekend to log new beers I've tried. Déjà Brew is a bit more public,
-        mostly because we haven't covered user auth, yet, but that's a planned
-        update. Additional updates include incorporating Google Maps to show the
-        location of nearby breweries and making the app responsive, so it is
-        more user-friendly on different sized devices.
+        weekend to log new beers I've tried. Additional updates include
+        incorporating Google Maps to show the location of nearby breweries and
+        making the app responsive, so it is more user-friendly on different
+        sized devices.
       </p>
       <br />
       <p>Hope you enjoy it!</p>
