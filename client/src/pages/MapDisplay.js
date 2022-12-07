@@ -39,7 +39,6 @@ const MapDisplay = () => {
   }
 
   const render = (status) => {
-    console.log(status)
     if (status === Status.FAILURE) return <ErrorComponent />
     else if (status === Status.LOADING) return <Spinner />
   }
@@ -69,8 +68,6 @@ const MapDisplay = () => {
           : null}
       </Map>
     </Wrapper>
-
-    // <button onClick={() => console.log(userLocation.current)}>get UL</button>
   )
 }
 
