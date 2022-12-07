@@ -7,25 +7,33 @@ import {
   Children
 } from 'react'
 
-const Map = ({ userLocation, children }) => {
+const Map = ({ userLat, userLng, getLocation, children }) => {
   const ref = useRef(null)
-  const [map, setMap] = useState()
+  const [map, setMap] = useState(null)
 
   // const generateMap = () => {}
 
   useEffect(() => {
-    // userLocation && generateMap()
-    if (userLocation) {
-      if (ref.current && !map) {
-        setMap(
-          new window.google.maps.Map(ref.current, {
-            center: { lat: userLocation.lat, lng: userLocation.lng },
-            zoom: 11
-          })
-        )
-      }
+    if (ref.current && !map) {
+      getLocation()
+      setMap(
+        new window.google.maps.Map(ref.current, {
+          center: { lat: userLat, lng: userLng },
+          zoom: 10
+        })
+      )
     }
-  }, [ref, map, !userLocation.lat])
+  }, [ref, map])
+  useEffect(() => {
+    if (userLat) {
+      setMap(
+        new window.google.maps.Map(ref.current, {
+          center: { lat: userLat, lng: userLng },
+          zoom: 10
+        })
+      )
+    }
+  }, [userLat])
 
   return (
     <>

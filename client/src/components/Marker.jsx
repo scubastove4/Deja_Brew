@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const Marker = () => {
+const Marker = (options) => {
   const [marker, setMarker] = useState()
 
   useEffect(() => {
@@ -15,11 +15,11 @@ const Marker = () => {
     }
   }, [marker])
 
-  //   useEffect(() => {
-  //     if (marker) {
-  //       marker.setOptions(options)
-  //     }
-  //   }, [marker, options])
+  useEffect(() => {
+    if (marker) {
+      marker.setOptions(options)
+    }
+  }, [marker, options])
   return null
 }
 

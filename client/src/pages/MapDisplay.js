@@ -7,15 +7,13 @@ import Spinner from '../components/Spinner'
 import ErrorComponent from '../components/ErrorComponent'
 
 const MapDisplay = () => {
-  const userLocation = useRef({
-    lat: 0,
-    lng: 0
-  })
+  const [userLat, setUserLat] = useState(0)
+  const [userLng, setUserLng] = useState(0)
   const [nearbyBreweries, setNearbyBreweries] = useState([])
 
   const getUserLocation = (position) => {
-    userLocation.current.lat = Number(position.coords.latitude)
-    userLocation.current.lng = Number(position.coords.longitude)
+    setUserLat(Number(position.coords.latitude))
+    setUserLng(Number(position.coords.longitude))
   }
 
   const getLocation = () => {
@@ -31,7 +29,7 @@ const MapDisplay = () => {
   const getNearbyBreweries = async () => {
     try {
       const res = await axios.get(
-        `https://api.openbrewerydb.org/breweries?by_dist=${userLocation.current.lat},${userLocation.current.lng}&per_page=10`
+        `https://api.openbrewerydb.org/breweries?by_dist=${userLat},${userLng}&per_page=10`
       )
       setNearbyBreweries(res.data)
       // setBreweriesHere(true)
@@ -41,22 +39,14 @@ const MapDisplay = () => {
   }
 
   const render = (status) => {
+    console.log(status)
     if (status === Status.FAILURE) return <ErrorComponent />
-    return <Spinner />
+    else if (status === Status.LOADING) return <Spinner />
   }
 
   useEffect(() => {
-    getLocation()
     getNearbyBreweries()
-    // if (nearbyBreweries.length) {
-    //   let
-    //   nearbyBreweries
-    //     .forEach((brewery) => (brewery.latitude = parseFloat(brewery.latitude)))
-    //     .forEach(
-    //       (brewery) => (brewery.longitude = parseFloat(brewery.longitude))
-    //     )
-    // }
-  }, [])
+  }, [userLat])
 
   // geolocation help https://youtu.be/U3dLjHN0UvM and https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
 
@@ -65,7 +55,7 @@ const MapDisplay = () => {
       apiKey={`${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`}
       render={render}
     >
-      <Map userLocation={userLocation.current}>
+      <Map userLat={userLat} userLng={userLng} getLocation={getLocation}>
         {nearbyBreweries.length
           ? nearbyBreweries.map((brewery) => (
               <Marker
