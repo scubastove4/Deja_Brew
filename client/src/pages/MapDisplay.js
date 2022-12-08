@@ -50,10 +50,7 @@ const MapDisplay = () => {
   // geolocation help https://youtu.be/U3dLjHN0UvM and https://www.pluralsight.com/guides/how-to-use-geolocation-call-in-reactjs
 
   return (
-    <Wrapper
-      apiKey={`${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`}
-      render={render}
-    >
+    <Wrapper apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY} render={render}>
       <Map userLat={userLat} userLng={userLng} getLocation={getLocation}>
         {nearbyBreweries.length
           ? nearbyBreweries.map((brewery) => (
