@@ -51,6 +51,8 @@ const MapDisplay = () => {
 
   return (
     <Wrapper apiKey={process.env.REACT_APP_GOOGLE_MAPS_API_KEY} render={render}>
+      {/* api key needs to be string interpolated in local env - remove for production */}
+      {/* <Wrapper apiKey={`${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`} render={render}> */}
       <Map userLat={userLat} userLng={userLng} getLocation={getLocation}>
         {nearbyBreweries.length
           ? nearbyBreweries.map((brewery) => (
